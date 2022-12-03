@@ -1,0 +1,58 @@
+.menu_container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+.menu_heading {
+  color: rgb(95, 95, 95);
+  padding: 8px;
+  font-size: x-large;
+  display: flex;
+  align-items: center;
+}
+.menu_item {
+  margin: 2px;
+
+  border-radius: 20%;
+  background-color: white;
+  color: rgb(12, 13, 13);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+
+  width: 8rem;
+  height: 8rem;
+  text-align: center;
+  transition: all 0.2s ease-in;
+}
+.menu_item:hover {
+  box-shadow: 0 0 20px rgb(223, 223, 223);
+  border-color: rgb(146, 146, 146);
+  cursor: pointer;
+}
+
+.menu_item_title {
+  padding: 2px;
+  text-transform: capitalize;
+}
+
+.input_logo {
+  border-radius: 10px;
+  border: 1px solid rgb(34 51 84 / 70%);
+  color: rgb(34 51 84 / 70%);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  width: 100%;
+  padding: 20px;
+}
+
+.input_field_logo_label {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+  align-items: center;
+}
