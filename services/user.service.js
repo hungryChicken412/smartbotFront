@@ -6,7 +6,7 @@ import { useState } from 'react';
 import { useEffect } from 'react';
 import authheader from '../helpers/fetch-wrapper.js';
 
-export const baseHomeUrl = 'http://localhost:8000'; //'https://orange-waves.herokuapp.com'
+export const baseHomeUrl = 'https://smartbot-api.onrender.com'; //'https://orange-waves.herokuapp.com'
 export const baseUrl = baseHomeUrl + '/api-info';
 import Cookies from 'js-cookie';
 
