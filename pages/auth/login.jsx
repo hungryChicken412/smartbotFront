@@ -49,10 +49,7 @@ function Login() {
       <div className={styles.auth_container}>
         <div className={styles.auth_box}>
           <Link href="/">
-            <img
-              src="http://orangewaves.tech/dist/images/orange.png"
-              width={100}
-            />
+            <img src="/orange.png" width={100} />
           </Link>
           <p></p>
 
