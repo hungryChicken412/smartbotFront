@@ -6,22 +6,6 @@ import type { ApexOptions } from 'apexcharts';
 
 function WatchListColumn({ bots }) {
   const theme = useTheme();
-  const chart1Data = [
-    {
-      name: 'Bitcoin Price',
-      data: [55.701, 57.598, 48.607, 46.439, 58.755, 46.978, 58.16],
-
-      labels: [
-        'Monday',
-        'Tueday',
-        'Wednesday',
-        'Thursday',
-        'Friday',
-        'Saturday',
-        'Sunday'
-      ]
-    }
-  ];
 
   const chartOptions: ApexOptions = {
     chart: {
