@@ -420,7 +420,7 @@ function LandingPage() {
         </div>
       </div>
       <div className=" landingpage-section-1 landingpage-section-pricing">
-        <img className="landingpage-section-1-image" src="/im2.webp" />
+        <img className="landingpage-section-1-image" src="/img2.webp" />
         <div className="landingpage-section-pricing-block">
           <div className="landingpage-pricing-block-header">
             <Label color="primary"> PRO </Label>
