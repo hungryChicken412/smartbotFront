@@ -8,7 +8,6 @@ import {
   ListItemAvatar,
   List,
   ListItemText,
-  Avatar,
   ListItemButton
 } from '@mui/material';
 
@@ -32,17 +31,6 @@ const TypographyH1 = styled(Typography)(
   ({ theme }) => `
     font-size: ${theme.typography.pxToRem(50)};
 `
-);
-const WarningBox = styled(Avatar)(
-  ({ theme }) => `
-          background-color:  transparent;
-          color: ${theme.colors.success.main};
-          width: ${theme.spacing(8)};
-          height: ${theme.spacing(8)};
-          font-size: 40px;
-          margin-left: auto;
-          margin-right: auto;
-    `
 );
 const ListItemWrapper = styled(ListItemButton)(
   ({ theme }) => `
