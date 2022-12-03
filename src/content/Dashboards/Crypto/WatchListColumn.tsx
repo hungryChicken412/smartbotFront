@@ -157,7 +157,7 @@ function WatchListColumn({ bots }) {
               options={chartOptions}
               series={[
                 {
-                  data: Object.values(item.interactions.last_week)
+                  data: Object.values(item.interactions.last_week) as number[]
                 }
               ]}
               type="area"
