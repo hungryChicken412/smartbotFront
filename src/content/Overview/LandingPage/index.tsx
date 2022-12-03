@@ -124,16 +124,14 @@ function LandingPage() {
                     </Button>
                   </Link>
                 </div>
-                <div className="hero-supported-platforms">
+                {/* <div className="hero-supported-platforms">
                   <img src="https://cdn3.iconfinder.com/data/icons/flat-icons-web/40/WordPress-512.png" />
-
                   <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Font_Awesome_5_brands_squarespace.svg/1200px-Font_Awesome_5_brands_squarespace.svg.png" />
                   <img src="1591893_shopify_social_icon.png" />
-                </div>
-                <p style={{ color: 'white', textAlign: 'left' }}>
+                </div><p style={{ color: 'white', textAlign: 'left' }}>
                   {' '}
                   And whole lot more!
-                </p>
+                </p> */}
               </div>
               <div className="hero-col hero-img-col">
                 <div className="hero-img">
