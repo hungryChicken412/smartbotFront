@@ -70,23 +70,37 @@ function TokyoApp(props: TokyoAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>OrangeWavesAI | Customer Service Chatbots Made Easier!</title>
+
+        <meta property="og:url" content="https://orangewaves.tech" />
+        <meta property="og:type" content="website" />
         <meta
-          name="viewport"
-          content="width=device-width, initial-scale=1, shrink-to-fit=no"
-        />
-        <meta
-          name="description"
-          content="OrangewavesAI is a no-code chatbot development platform for small businesses and startups, it provides one stop solution for all your needs from helpdesk issues, to surveys or a virtual assistent."
-        />
-        <meta
-          name="og:title"
+          property="og:title"
           content="OrangeWavesAI | A no-code chatbot development platform"
         />
         <meta
-          name="og:description"
+          property="og:description"
           content="OrangewavesAI is a no-code chatbot development platform for small businesses and startups, it provides one stop solution for all your needs from helpdesk issues, to surveys or a virtual assistent."
         />
-        <meta name="og:image" content="/1876.webp" />
+        <meta
+          property="og:image"
+          content="https://orangewaves.tech/1876.webp"
+        />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="orangewaves.tech/" />
+        <meta property="twitter:url" content="https://orangewaves.tech" />
+        <meta
+          name="twitter:title"
+          content="OrangeWavesAI | A no-code chatbot development platform"
+        />
+        <meta
+          name="twitter:description"
+          content="OrangewavesAI is a no-code chatbot development platform for small businesses and startups, it provides one stop solution for all your needs from helpdesk issues, to surveys or a virtual assistent."
+        />
+        <meta
+          name="twitter:image"
+          content="https://orangewaves.tech/1876.webp"
+        />
       </Head>
       <SidebarProvider>
         <AppDashboardWrapper>
