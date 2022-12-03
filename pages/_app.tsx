@@ -79,14 +79,14 @@ function TokyoApp(props: TokyoAppProps) {
           content="OrangewavesAI is a no-code chatbot development platform for small businesses and startups, it provides one stop solution for all your needs from helpdesk issues, to surveys or a virtual assistent."
         />
         <meta
-          name="og-title"
+          name="og:title"
           content="OrangeWavesAI | A no-code chatbot development platform"
         />
         <meta
-          name="og-description"
+          name="og:description"
           content="OrangewavesAI is a no-code chatbot development platform for small businesses and startups, it provides one stop solution for all your needs from helpdesk issues, to surveys or a virtual assistent."
         />
-        <meta property="og:image" content="/1876.webp" />
+        <meta name="og:image" content="/1876.webp" />
       </Head>
       <SidebarProvider>
         <AppDashboardWrapper>
