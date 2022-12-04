@@ -125,14 +125,6 @@ function LandingPage() {
                     </Button>
                   </Link>
                 </div>
-                {/* <div className="hero-supported-platforms">
-                  <img src="https://cdn3.iconfinder.com/data/icons/flat-icons-web/40/WordPress-512.png" />
-                  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/8b/Font_Awesome_5_brands_squarespace.svg/1200px-Font_Awesome_5_brands_squarespace.svg.png" />
-                  <img src="1591893_shopify_social_icon.png" />
-                </div><p style={{ color: 'white', textAlign: 'left' }}>
-                  {' '}
-                  And whole lot more!
-                </p> */}
               </div>
               <div className="hero-col hero-img-col">
                 <div className="hero-img">
@@ -258,7 +250,7 @@ function LandingPage() {
           src="/im1.webp"
         />
         <div className="landingpage-section-1-content">
-          <Typography sx={{ mb: 2 }} variant="h1">
+          <Typography sx={{ mb: 2 }} variant="h2">
             What does it offer?
           </Typography>
           <ListItemWrapper>
@@ -451,7 +443,7 @@ function LandingPage() {
       </div>
       <div className="landingpage-section-1">
         <div className="landingpage-section-1-content">
-          <Typography sx={{ mb: 2 }} variant="h1">
+          <Typography sx={{ mb: 2 }} variant="h2">
             But at what cost?
           </Typography>
           <Typography sx={{ mb: 2, fontWeight: 'light' }} variant="h4">
