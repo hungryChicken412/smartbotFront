@@ -50,7 +50,7 @@ function Logo() {
     >
       <LogoWrapper href="/">
         <LogoSignWrapper>
-          <img src="./orange.png" width={'120px'} />
+          <img src="/orange.png" width={'120px'} />
         </LogoSignWrapper>
       </LogoWrapper>
     </TooltipWrapper>
