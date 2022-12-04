@@ -12,6 +12,7 @@ const EmptyResultsWrapper = styled('img')(
 
 function WatchList({ bots }) {
   var isEmpty = bots.length == 0;
+  console.log(bots.length);
 
   return (
     <>
