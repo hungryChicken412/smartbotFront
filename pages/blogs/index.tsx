@@ -68,7 +68,7 @@ function Blog({ blogs }) {
           speed={0}
           style={{
             textAlign: 'center',
-            backgroundImage: 'url(/1876.jpg)',
+            backgroundImage: 'url(/1876.webp)',
             backgroundSize: 'cover',
             backgroundPosition: 'bottom',
 
