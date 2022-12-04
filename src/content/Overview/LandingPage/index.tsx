@@ -112,7 +112,7 @@ function LandingPage() {
             </div>
 
             <div className="hero">
-              <div className="hero-col border-img">
+              <div className="hero-col border-imgg">
                 <div className="hero-title"> Your one stop solution</div>
                 <div className="hero-subtitle">
                   Build the most sophisticated and user friendly chatbot systems

@@ -19,8 +19,22 @@ function Overview() {
     <OverviewWrapper>
       <Head>
         <title>OrangeWavesAI | Customer Service Chatbots Made Easier!</title>
+        <link
+          rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+          crossOrigin="anonymous"
+          integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        />
+        <link rel="stylesheet" href="/static/chatbot_cdn/chatbot.css" />
       </Head>
       <LandingPage />
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `<section class="smartbot-section" name="smartbot-section" id="6b271431-a19e-465b-b17c-622cd7a0d22f">
+    <script src="/static/chatbot_cdn/chatbot.js"></script>
+  </section>`
+        }}
+      />
     </OverviewWrapper>
   );
 }
