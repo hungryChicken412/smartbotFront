@@ -70,7 +70,6 @@ function TokyoApp(props: TokyoAppProps) {
     <CacheProvider value={emotionCache}>
       <Head>
         <title>OrangeWavesAI | Customer Service Chatbots Made Easier!</title>
-
         <meta property="og:url" content="https://orangewaves.tech" />
         <meta property="og:type" content="website" />
         <meta
@@ -84,8 +83,11 @@ function TokyoApp(props: TokyoAppProps) {
         <meta
           property="og:image"
           content="https://orangewaves.tech/1876.webp"
+        />{' '}
+        <meta
+          name="google-site-verification"
+          content="SINSDfRBxyTT4NJAugsP9qztkyAkBfeqkwKCGm3yJnA"
         />
-
         <meta name="twitter:card" content="summary_large_image" />
         <meta property="twitter:domain" content="orangewaves.tech/" />
         <meta property="twitter:url" content="https://orangewaves.tech" />
