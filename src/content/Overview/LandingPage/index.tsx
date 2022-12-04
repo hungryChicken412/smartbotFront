@@ -206,7 +206,7 @@ function LandingPage() {
                 </div>
               </div>
               <Image
-                alt="Demo-Image-1"
+                alt="Demo of our service Image-1"
                 width={800}
                 height={850}
                 placeholder="empty"
@@ -229,7 +229,7 @@ function LandingPage() {
                 </div>
               </div>
               <Image
-                alt="demo-image-2"
+                alt="demo of our service "
                 width={900}
                 height={1008}
                 className="landingpage-section-1-image"
@@ -242,7 +242,7 @@ function LandingPage() {
       </div>
       <div className="landingpage-section-1">
         <Image
-          alt="demo-image-3"
+          alt="demo"
           width={400}
           height={450}
           placeholder="empty"
