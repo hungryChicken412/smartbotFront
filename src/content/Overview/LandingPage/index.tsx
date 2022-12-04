@@ -533,10 +533,12 @@ function LandingPage() {
           </div>
 
           <div className="landingpage-pricing-price">
-            <Button variant="outlined" color="primary">
-              {' '}
-              Get Now
-            </Button>{' '}
+            <Link href="/dashboards">
+              <Button variant="outlined" color="primary">
+                {' '}
+                Get Now
+              </Button>{' '}
+            </Link>
           </div>
         </div>
       </div>
