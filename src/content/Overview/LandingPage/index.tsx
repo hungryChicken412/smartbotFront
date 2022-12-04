@@ -10,6 +10,7 @@ import {
   ListItemText,
   ListItemButton
 } from '@mui/material';
+import Image from 'next/image';
 
 import Link from 'src/components/Link';
 import Label from '@/components/Label';
@@ -135,7 +136,13 @@ function LandingPage() {
               </div>
               <div className="hero-col hero-img-col">
                 <div className="hero-img">
-                  <img width="100%" src="textbot.webp" />
+                  <Image
+                    alt="Hero-Image"
+                    width={400}
+                    placeholder="empty"
+                    height={550}
+                    src="/textbot.webp"
+                  />
                 </div>
               </div>
             </div>
@@ -205,7 +212,14 @@ function LandingPage() {
                   ticketting system and solve your customers' queries on the go!
                 </div>
               </div>
-              <img className="landingpage-section-1-image" src="/img2.webp" />
+              <Image
+                alt="Demo-Image-1"
+                width={800}
+                height={850}
+                placeholder="empty"
+                className="landingpage-section-1-image"
+                src="/img2.webp"
+              />
             </div>
           </div>
           <div>
@@ -221,13 +235,27 @@ function LandingPage() {
                   information from the users.
                 </div>
               </div>
-              <img className="landingpage-section-1-image" src="/img3.webp" />
+              <Image
+                alt="demo-image-2"
+                width={900}
+                height={1008}
+                className="landingpage-section-1-image"
+                placeholder="empty"
+                src="/img3.webp"
+              />
             </div>
           </div>
         </Slider>
       </div>
       <div className="landingpage-section-1">
-        <img className="landingpage-section-1-image" src="/im1.webp" />
+        <Image
+          alt="demo-image-3"
+          width={400}
+          height={450}
+          placeholder="empty"
+          className="landingpage-section-1-image"
+          src="/im1.webp"
+        />
         <div className="landingpage-section-1-content">
           <Typography sx={{ mb: 2 }} variant="h1">
             What does it offer?
@@ -386,7 +414,13 @@ function LandingPage() {
                   issues!
                 </div>
               </div>
-              <img className="landingpage-section-1-image" src="/im4.webp" />
+              <Image
+                className="landingpage-section-1-image"
+                width={800}
+                placeholder="empty"
+                height={850}
+                src="/im4.webp"
+              />
             </div>
           </div>
           <div>
@@ -403,7 +437,13 @@ function LandingPage() {
                   what are your new products? what should they be looking at?
                 </div>
               </div>
-              <img className="landingpage-section-1-image" src="/imgg5.webp" />
+              <Image
+                className="landingpage-section-1-image"
+                width={800}
+                height={864}
+                src="/imgg5.webp"
+                placeholder="empty"
+              />
             </div>
           </div>
         </Slider>
@@ -420,7 +460,13 @@ function LandingPage() {
         </div>
       </div>
       <div className=" landingpage-section-1 landingpage-section-pricing">
-        <img className="landingpage-section-1-image" src="/img2.webp" />
+        <Image
+          width={450}
+          height={550}
+          placeholder="empty"
+          className="landingpage-section-1-image"
+          src="/img2.webp"
+        />
         <div className="landingpage-section-pricing-block">
           <div className="landingpage-pricing-block-header">
             <Label color="primary"> PRO </Label>
