@@ -97,7 +97,9 @@ var initialNodes = [
     data: { label: '' }
   }
 ];
-var initialEdges = [{ id: 'e1-2', source: 'node-0', target: 'node-1' }];
+var initialEdges = [
+  { id: 'e1-2', source: 'node-0', target: 'node-1', type: 'step' }
+];
 const initialBotDetails = {
   name: 'New Bot',
   caching: false,

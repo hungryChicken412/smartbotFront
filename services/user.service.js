@@ -54,7 +54,7 @@ function uploadFiles(data) {
 function socialLogin(cookie, router) {
   localStorage.setItem('token', cookie);
   Cookies.set('token', cookie);
-  Router.push('/');
+  Router.push('/dashboards');
 }
 
 function validateToken(cookie) {
