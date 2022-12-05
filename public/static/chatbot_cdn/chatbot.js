@@ -1,1 +1,349 @@
-startingNodeID="node-0",nodes={},edges=[];const api="https://dolphin-app-v2zkq.ondigitalocean.app/api-info/",chatSection=document.getElementsByName("smartbot-section");var chatbot=[];async function getBotData(){var t=api+"chatbotHost/"+chatSection[0].id+"/",e=await fetch(t).then((t=>t.json())).then((t=>t));return chatbot=e,e}getBotData(),chatSection[0].insertAdjacentHTML("afterbegin",'<button class="smartbot-chat-btn smartbot-button">\n<i class="fa-solid fa-comment"></i>\n</button>\n\n<div id="chat-popup" class="smartbot-chat-popup">\n<div class="smartbot-intro">\n  <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/19753/cute-cat-in-bowl-clipart-md.png"\n\tclass="chatbot-icon" />\n  <div class="smartbot-intro-information">\n\t<div class="smartbot-intro-title">\n\t  Henry 🚀\n\t  <div class="smartbot-status">\n\t\t🟢 Online <br> Powered By OI\n\t  </div>\n\n\t  <div class="border-img"></div>\n\n\n\n\n\t</div>\n\n\n\n  </div>\n  <button class="smartbot-close-button ">\n\t<span class="material-icons-outlined close">\n\t  <i class="fa-solid fa-xmark"></i>\n\t</span>\n  </button>\n</div>\n\x3c!-- <div class="badge">1</div> --\x3e\n<div class="smartbot-chat-area">\n  <span id="established" class="" style=" color:gray;padding-top:20px;">\n\tYou\'re talking to a virtual assistent\n  </span>\n</div>\n\n\n\n<div class="smartbot-input-area">\n  <input class="smartbot-input" type="text" id="smartbot-submit-text" placeholder="Type your message here!">\n  <label for="smartbot-file-field">\n\t<i class="fa-solid fa-ellipsis-vertical"></i>\n  </label>\n  <input class="smartbot-input" type="file" disabled id="smartbot-file-field" style="display:none"\n\tplaceholder="Type your message here!">\n  <button class="smartbot-submit smartbot-button" id="submit-button">\n\t<i class="fa-solid fa-paper-plane"></i>\n  </button>\n</div>\n</div>');const popup=document.querySelector(".smartbot-chat-popup"),chatBtn=document.querySelector(".smartbot-chat-btn"),closeBtn=document.querySelector(".smartbot-close-button"),submitBtn=document.querySelector(".smartbot-submit"),chatArea=document.querySelector(".smartbot-chat-area"),inputElm=document.querySelector("input"),infopanel=document.querySelector(".smartbot-information-panel"),endconvo=document.querySelector("#end-convo"),startconvo=document.querySelector("#start-convo"),startwait=document.querySelector("#established"),typingIcon=document.querySelector("#sending-icon-display-thingy");inputElm.disabled=!0,submitBtn.disabled=!0;const delay=t=>new Promise((e=>setTimeout(e,t)));var startedConvo=!1;chatBtn.addEventListener("click",(()=>{popup.classList.toggle("show"),startedConvo||(startedConvo=!0,startConversation())})),closeBtn.addEventListener("click",(()=>{popup.classList.toggle("show"),startedConvo||(startedConvo=!0)})),submitBtn.addEventListener("click",(t=>{sendMsg()})),inputElm.addEventListener("keypress",(function(t){"Enter"==t.key&&sendMsg()})),token=document.getElementsByClassName("smartbot-section")[0].id,lastNode={},expectingUserInput=!1,chatLog=[];var startAudio=new Audio("https://smartbotbucket.s3.ap-south-1.amazonaws.com/startding.wav"),newMessageAudio=new Audio("https://smartbotbucket.s3.ap-south-1.amazonaws.com/newdin.wav");async function startConversation(){console.log("starting"),document.getElementsByClassName("smartbot-intro-title")[0].innerHTML=chatbot[0].name+'<div class="smartbot-status">🟢 Online <br> Powered By OI</div>',document.getElementsByClassName("chatbot-icon")[0].src=chatbot[0].avatar,startAudio.play(),nodes=JSON.parse(chatbot[0].chatbotHostData).nodes,edges=JSON.parse(chatbot[0].chatbotHostData).edges,console.log(chatbot[0]),traverseTree(nodes[startingNodeID])}function endconversation(){inputElm.placeholder="Conversation Ended",submitBtn.disabled=!0,submitBtn.style.display="none";console.log(chatLog)}function showMessage(t,e){if("message_node"!=t.type)throw new Error("Something is wrong with your chat flow! Expected a Message_Node but got"+t.type);let s=t.data.label,n=e,a=`\n    <div class="smartbot-income-msg smartbot-msg-card">\n        <span class="smartbot-username">🚀</span>\n        <span class="smartbot-msg">${s}</span>\n    </div>`;if(n.length>1){n.forEach((e=>{a+=`\n            <div class="smartbot-income-msg smartbot-msg-card smartbot-choice-msg"  onclick="choose('${t.id}','${e}')">\n                <span class="smartbot-msg">${e}</span>\n                \n            </div>`}))}chatArea.insertAdjacentHTML("beforeend",a),chatLog.push([chatbot[0].name,s]),chatArea.scrollTop=chatArea.scrollHeight,newMessageAudio.play()}function askQuestion(t){sendMsgToUser(t.data.label.Question),expectingUserInput=!0,lastNode=t.id,inputElm.disabled=!1}function sendImage(t,e){var s=`<img src="${t.data.label}" width='100px' height='100px'/>`;sendMsgToUser(s),chatLog.push([chatbot[0].name,s]),traverseTree(t,"")}async function sendLink(t){await fetch(`https://get-link-preview.herokuapp.com/?url=${t.data.label}`).then((t=>t.json())).then((e=>{sendMsgToUser(`\n\t\t\t<div class="sm-node-link-preview" ><img src="${e.image}" width="100%" height="100px"/><a href="${t.data.label}" ref='noopener' target='_blank'>${e.title}   </a><p>${e.description}</p><div>`),traverseTree(t,"")}))}function choose(t,e){if("none"==submitBtn.style.display)return"";sendMsg(t,e)}function sendMsg(t,e){let s=inputElm.value;null!=e&&(s=e),chatLog.push(["User",s]);let n=`<div class="smartbot-my-msg">\n    <span class="smartbot-usr-msg">${s}</span>\n    <span class="smartbot-username">😃</span>\n    </div>`;chatArea.insertAdjacentHTML("beforeend",n),chatArea.scrollTop=chatArea.scrollHeight,null!=inputElm.value&&expectingUserInput?traverseTree(nodes[lastNode],s):traverseTree(nodes[t],s),inputElm.value=""}function sendMsgToUser(t){let e=`\n    <div class="smartbot-income-msg smartbot-msg-card">\n        <span class="smartbot-username">🚀</span>\n        <span class="smartbot-msg">${t}</span>\n    </div>`;chatLog.push([chatbot[0].name,t]),chatArea.insertAdjacentHTML("beforeend",e),chatArea.scrollTop=chatArea.scrollHeight,newMessageAudio.play()}function findRelations(t,e){var s=[];return edges.forEach((e=>{e.source==t.id&&s.push(e)})),s}function findOptions(t,e,s){var n=findRelations(t,e),a=[];return n.forEach((t=>{"user_message"==s[t.target].type&&a.push(s[t.target].data.label)})),a}function nextNode(t,e="",s){var n=findRelations(t,edges);if("exit_node"!=t.type){if("message_node"!=t.type)return s[n[0].target];if(1==n.length)return s[n[0].target];for(let t=0;t<n.length;t++)if(rel=n[t],s[rel.target].data.label==e)return s[rel.target];throw new Error("unknown node")}endconversation()}async function traverseTree(t,e=""){var s;await(s=800,new Promise((t=>setTimeout(t,s))));var n=t,a=e;if(chatArea.scrollTop=chatArea.scrollHeight,inputElm.disabled=!0,"exit_node"==n.type)return console.log(" oinh"),void endconversation();if(n=nextNode(n,a,nodes),console.log(n),"message_node"==n.type){if(options=findOptions(n,edges,nodes),!(options.length>0))return showMessage(n,options),void traverseTree(n);showMessage(n,options)}else{if("user_message"==n.type)return void traverseTree(n);if("send_image"==n.type)sendImage(n);else if("send_link"==n.type)sendLink(n);else{if("ask_question"!=n.type)return void endconversation();askQuestion(n)}}}
+startingNodeID = 'node-0';
+nodes = {};
+edges = [];
+const api = 'https://dolphin-app-v2zkq.ondigitalocean.app/api-info/';
+const chatSection = document.getElementsByName('smartbot-section');
+var chatbot = [];
+function sanitizer(str) {
+  str = str.replace(/[^a-z0-9áéíóúñü \.,_-]/gim, '');
+  return str.trim();
+}
+async function getBotData() {
+  var url = api + 'chatbotHost/' + chatSection[0].id + '/';
+
+  var resp = await fetch(url)
+    .then((response) => response.json())
+    .then((data) => {
+      document.getElementById('smartbot-play-button').style.display = 'block';
+      return data;
+    });
+
+  chatbot = resp;
+  return resp;
+}
+getBotData();
+
+chatSection[0].insertAdjacentHTML(
+  'afterbegin',
+  `<button id="smartbot-play-button" class="smartbot-chat-btn smartbot-button" style= " display:none;">
+<i class="fa-solid fa-comment"></i>
+</button>
+
+<div id="chat-popup" class="smartbot-chat-popup">
+<div class="smartbot-intro">
+  <img src="https://creazilla-store.fra1.digitaloceanspaces.com/cliparts/19753/cute-cat-in-bowl-clipart-md.png"
+	class="chatbot-icon" />
+  <div class="smartbot-intro-information">
+	<div class="smartbot-intro-title">
+	  Henry 🚀
+	  <div class="smartbot-status">
+		🟢 Online <br> Powered By OI
+	  </div>
+
+	  <div class="border-img"></div>
+
+
+
+
+	</div>
+
+
+
+  </div>
+  <button class="smartbot-close-button ">
+	<span class="material-icons-outlined close">
+	  <i class="fa-solid fa-xmark"></i>
+	</span>
+  </button>
+</div>
+<!-- <div class="badge">1</div> -->
+<div class="smartbot-chat-area">
+  <span id="established" class="" style=" color:gray;padding-top:20px;">
+	You're talking to a virtual assistent
+  </span>
+</div>
+
+
+
+<div class="smartbot-input-area">
+  <input class="smartbot-input" type="text" id="smartbot-submit-text" placeholder="Type your message here!">
+  <label for="smartbot-file-field">
+	<i class="fa-solid fa-ellipsis-vertical"></i>
+  </label>
+  <input class="smartbot-input" type="file" disabled id="smartbot-file-field" style="display:none"
+	placeholder="Type your message here!">
+  <button class="smartbot-submit smartbot-button" id="submit-button">
+	<i class="fa-solid fa-paper-plane"></i>
+  </button>
+</div>
+</div>`
+);
+const popup = document.querySelector('.smartbot-chat-popup');
+const chatBtn = document.querySelector('.smartbot-chat-btn');
+const closeBtn = document.querySelector('.smartbot-close-button');
+const submitBtn = document.querySelector('.smartbot-submit');
+const chatArea = document.querySelector('.smartbot-chat-area');
+const inputElm = document.querySelector('input');
+const infopanel = document.querySelector('.smartbot-information-panel');
+const endconvo = document.querySelector('#end-convo');
+const startconvo = document.querySelector('#start-convo');
+const startwait = document.querySelector('#established');
+const typingIcon = document.querySelector('#sending-icon-display-thingy');
+inputElm.disabled = true;
+submitBtn.disabled = true;
+const delay = (ms) => new Promise((res) => setTimeout(res, ms));
+var startedConvo = false;
+//   chat button toggler
+
+chatBtn.addEventListener('click', () => {
+  popup.classList.toggle('show');
+  if (!startedConvo) {
+    startedConvo = true;
+    startConversation();
+  }
+});
+closeBtn.addEventListener('click', () => {
+  popup.classList.toggle('show');
+  if (!startedConvo) {
+    startedConvo = true;
+  }
+});
+submitBtn.addEventListener('click', (e) => {
+  sendMsg();
+});
+
+inputElm.addEventListener('keypress', function (e) {
+  if (e.key == 'Enter') {
+    sendMsg();
+  }
+});
+
+token = document.getElementsByClassName('smartbot-section')[0].id;
+lastNode = {};
+expectingUserInput = false;
+chatLog = [];
+var startAudio = new Audio(
+  'https://smartbotbucket.s3.ap-south-1.amazonaws.com/startding.wav'
+);
+
+var newMessageAudio = new Audio(
+  'https://smartbotbucket.s3.ap-south-1.amazonaws.com/newdin.wav'
+);
+
+async function startConversation() {
+  console.log('starting');
+
+  document.getElementsByClassName('smartbot-intro-title')[0].innerHTML =
+    chatbot[0]['name'] +
+    `<div class="smartbot-status">🟢 Online <br> Powered By OI</div>`;
+  document.getElementsByClassName('chatbot-icon')[0].src = chatbot[0]['avatar'];
+
+  startAudio.play();
+
+  nodes = JSON.parse(chatbot[0].chatbotHostData)['nodes'];
+  edges = JSON.parse(chatbot[0].chatbotHostData)['edges'];
+  console.log(chatbot[0]);
+
+  var startingNode = nodes[startingNodeID];
+  traverseTree(startingNode);
+}
+function endconversation() {
+  //endconvo.remove();
+
+  inputElm.placeholder = 'Conversation Ended';
+  submitBtn.disabled = true;
+  submitBtn.style.display = 'none';
+
+  let startconvohtml = `Conversation Ended`;
+  console.log(chatLog);
+  //infopanel.insertAdjacentHTML("beforeend", startconvohtml);
+}
+// Node Specific Functions
+function showMessage(node, optns) {
+  if (node['type'] != 'message_node')
+    throw new Error(
+      'Something is wrong with your chat flow! Expected a Message_Node but got' +
+        node['type']
+    );
+
+  let msg = node.data.label;
+  let opts = optns;
+
+  let temp = `
+    <div class="smartbot-income-msg smartbot-msg-card">
+        <span class="smartbot-username">🚀</span>
+        <span class="smartbot-msg">${msg}</span>
+    </div>`;
+
+  if (opts.length > 1) {
+    let options = opts;
+    options.forEach((opt) => {
+      temp += `
+            <div class="smartbot-income-msg smartbot-msg-card smartbot-choice-msg"  onclick="choose('${
+              node.id
+            }','${sanitizer(opt)}')">
+                <span class="smartbot-msg">${opt}</span>
+                
+            </div>`;
+    });
+  }
+
+  chatArea.insertAdjacentHTML('beforeend', temp);
+  chatLog.push([chatbot[0].name, msg]);
+
+  chatArea.scrollTop = chatArea.scrollHeight;
+  newMessageAudio.play();
+}
+function askQuestion(node) {
+  sendMsgToUser(node.data.label.Question);
+  expectingUserInput = true;
+  lastNode = node.id;
+  inputElm.disabled = false;
+  console.log(lastNode);
+}
+function sendImage(node, link) {
+  var im = `<img src="${node.data.label}" width='100px' height='100px'/>`;
+
+  sendMsgToUser(im);
+  chatLog.push([chatbot[0].name, im]);
+  traverseTree(node, '');
+}
+
+async function sendLink(node) {
+  var q = await fetch(
+    `https://get-link-preview.herokuapp.com/?url=${node.data.label}`
+  )
+    .then((response) => response.json())
+    .then((data) => {
+      var im = `
+			<div class="sm-node-link-preview" ><img src="${data.image}" width="100%" height="100px"/><a href="${node.data.label}" ref='noopener' target='_blank'>${data.title}   </a><p>${data.description}</p><div>`;
+      sendMsgToUser(im);
+      traverseTree(node, '');
+    });
+}
+
+// send msg
+function choose(currentNode, n) {
+  if (submitBtn.style.display == 'none') return '';
+  else sendMsg(currentNode, n);
+}
+function sendMsg(currentNode, data) {
+  let userInput = inputElm.value;
+
+  if (data != null) {
+    userInput = data;
+  }
+  chatLog.push(['User', userInput]);
+
+  let temp = `<div class="smartbot-my-msg">
+    <span class="smartbot-usr-msg">${userInput}</span>
+    <span class="smartbot-username">😃</span>
+    </div>`;
+
+  chatArea.insertAdjacentHTML('beforeend', temp);
+  chatArea.scrollTop = chatArea.scrollHeight;
+
+  if (inputElm.value != null && expectingUserInput) {
+    expectingUserInput = false;
+    traverseTree(nodes[lastNode], userInput);
+  } else traverseTree(nodes[currentNode], userInput);
+
+  inputElm.value = '';
+}
+function sendMsgToUser(msg) {
+  let temp = `
+    <div class="smartbot-income-msg smartbot-msg-card">
+        <span class="smartbot-username">🚀</span>
+        <span class="smartbot-msg">${msg}</span>
+    </div>`;
+  chatLog.push([chatbot[0].name, msg]);
+
+  chatArea.insertAdjacentHTML('beforeend', temp);
+  chatArea.scrollTop = chatArea.scrollHeight;
+  newMessageAudio.play();
+}
+
+// Utility
+function findRelations(node, edgesz) {
+  var rels = [];
+  edges.forEach((rel) => {
+    if (rel['source'] == node['id']) {
+      rels.push(rel);
+    }
+  });
+  return rels;
+}
+
+function findOptions(node, edges, nodes) {
+  var rels = findRelations(node, edges);
+  var options = [];
+  rels.forEach((rel) => {
+    if (nodes[rel.target].type == 'user_message')
+      options.push(nodes[rel.target].data.label);
+  });
+  return options;
+}
+function nextNode(node, input = '', nodes) {
+  var rels = findRelations(node, edges);
+
+  if (node.type == 'exit_node') {
+    endconversation();
+    return;
+  } else if (node.type == 'message_node') {
+    if (rels.length == 1) return nodes[rels[0]['target']];
+    console.log('here');
+
+    var q = null;
+    for (let index = 0; index < rels.length; index++) {
+      rel = rels[index];
+      if (sanitizer(nodes[rel.target].data.label) == input) {
+        q = nodes[rel.target];
+        return q;
+      }
+    }
+  } else {
+    console.log('here', nodes[rels[0]['target']]);
+    return nodes[rels[0]['target']];
+  }
+  console.log(node.type);
+}
+
+async function traverseTree(startingNode, input = '') {
+  await delay(800);
+  var node = startingNode;
+  var userInput = input;
+  chatArea.scrollTop = chatArea.scrollHeight;
+  inputElm.disabled = true;
+  console.log(node);
+
+  if (node.type != 'exit_node') {
+    node = nextNode(node, userInput, nodes);
+
+    if (node.type == 'message_node') {
+      options = findOptions(node, edges, nodes);
+
+      if (options.length > 0) showMessage(node, options);
+      else {
+        showMessage(node, options);
+        traverseTree(node);
+        return;
+      }
+    } else if (node.type == 'user_message') {
+      traverseTree(node);
+      return;
+    } else if (node.type == 'send_image') {
+      sendImage(node);
+    } else if (node.type == 'send_link') {
+      sendLink(node);
+    } else if (node.type == 'ask_question') {
+      askQuestion(node);
+    } else {
+      endconversation();
+      return;
+    }
+  } else {
+    console.log(' oinh');
+    endconversation();
+    return;
+  }
+}
