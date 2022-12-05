@@ -31,7 +31,8 @@ import ReactFlow, {
   addEdge,
   useNodesState,
   useEdgesState,
-  updateEdge
+  updateEdge,
+  ConnectionLineType
 } from 'reactflow';
 import 'reactflow/dist/style.css';
 import { baseUrl } from 'services/user.service';
@@ -128,7 +129,7 @@ function DesignChatbot({ chatbotInformation }) {
     toast({ type, message });
   }, []);
   const onConnect = useCallback(
-    (params) => setEdges((els) => addEdge(params, els)),
+    (params) => setEdges((els) => addEdge({ ...params, type: 'step' }, els)),
     []
   );
   const onEdgeUpdateStart = useCallback(() => {
@@ -263,6 +264,7 @@ function DesignChatbot({ chatbotInformation }) {
               ref={reactFlowWrapper}
               nodes={nodes}
               edges={edges}
+              connectionLineType={ConnectionLineType.Step}
               onNodesChange={onNodesChange}
               onEdgesChange={onEdgesChange}
               snapToGrid

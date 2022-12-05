@@ -10,6 +10,7 @@ import { AccountCircle } from '@mui/icons-material/';
 import { useRef, useState } from 'react';
 import { userService } from 'services/user.service';
 import { useAppContext } from 'src/contexts/global_context';
+import { baseHomeUrl } from '../../services/user.service';
 
 function Register() {
   const notify = useCallback((type, message) => {
@@ -32,6 +33,9 @@ function Register() {
     useRef(),
     useRef()
   ];
+  function click() {
+    window.open(baseHomeUrl + '/accounts/google/login', 'name');
+  }
 
   const onSubmit = (event) => {
     event.preventDefault();
@@ -86,6 +90,7 @@ function Register() {
               <Button
                 color="warning"
                 className={styles.auth_google_sign}
+                onClick={click}
                 variant="outlined"
               >
                 <img

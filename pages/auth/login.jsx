@@ -9,6 +9,7 @@ import { userService } from '../../services/user.service.js';
 import { useRef } from 'react';
 import { useRouter } from 'next/router';
 import { useAppContext } from 'src/contexts/global_context';
+import { baseHomeUrl } from '../../services/user.service.js';
 
 function Login() {
   const notify = useCallback((type, message) => {
@@ -22,6 +23,9 @@ function Login() {
 
   if (appContext.isAuth) {
     router.push('/dashboards');
+  }
+  function click() {
+    window.open(baseHomeUrl + '/accounts/google/login', 'name');
   }
 
   const loginUser = (e) => {
@@ -62,6 +66,7 @@ function Login() {
               <Button
                 color="warning"
                 className={styles.auth_google_sign}
+                onClick={click}
                 variant="outlined"
               >
                 <img

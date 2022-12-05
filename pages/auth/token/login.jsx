@@ -14,6 +14,7 @@ export default function TokenVerification() {
 
       try {
         var { data, valid } = userService.validateToken(token);
+        console.log('loginme', valid);
         if (valid) {
           userService.socialLogin(token, router);
         }
