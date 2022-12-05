@@ -14,8 +14,9 @@ export default function TokenVerification() {
 
       try {
         var { data, valid } = userService.validateToken(token);
-        console.log('loginme', valid);
-        if (valid) {
+
+        console.log(Boolean(data));
+        if (valid && Boolean(data)) {
           userService.socialLogin(token, router);
         }
       } catch (err) {
@@ -26,7 +27,8 @@ export default function TokenVerification() {
       }
     } else {
       if (typeof window != 'undefined') {
-        router.push('/');
+        console.log('otherErroe');
+        //router.push('/');
       }
     }
   } catch (err) {
