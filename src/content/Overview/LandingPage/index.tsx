@@ -10,7 +10,6 @@ import {
   ListItemText,
   ListItemButton
 } from '@mui/material';
-import Image from 'next/image';
 
 import Link from 'src/components/Link';
 import Label from '@/components/Label';
