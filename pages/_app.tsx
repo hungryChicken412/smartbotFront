@@ -73,6 +73,10 @@ function TokyoApp(props: TokyoAppProps) {
         <meta property="og:url" content="https://orangewaves.tech" />
         <meta property="og:type" content="website" />
         <meta
+          name="trustpilot-one-time-domain-verification-id"
+          content="20935692-ffed-4fbb-9097-ca4577d8a45a"
+        />
+        <meta
           property="og:title"
           content="OrangeWavesAI | A no-code chatbot development platform"
         />
