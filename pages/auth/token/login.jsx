@@ -23,7 +23,7 @@ export default function TokenVerification() {
         console.log(err);
         console.log('Token Validation: ERROR');
 
-        window.close();
+        //window.close();
       }
     } else {
       if (typeof window != 'undefined') {
