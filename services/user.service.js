@@ -69,7 +69,7 @@ function validateToken(cookie) {
     body: JSON.stringify(cookie)
   };
 
-  var [valid, isValid] = useState(true);
+  var [valid, isValid] = useState(false);
 
   useEffect(() => {
     fetch(baseUrl + '/validateToken/', requestOptions)
@@ -80,9 +80,13 @@ function validateToken(cookie) {
         } else if (data.status == 'success') {
           valid = true;
         }
-        return [data, valid];
+
+        setData(data);
+        isValid(valid);
       });
   }, []);
+
+  return { data, valid };
 }
 
 function getMyProfile(cookie) {

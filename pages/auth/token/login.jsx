@@ -10,7 +10,12 @@ export default function TokenVerification() {
   var [isAuthenticated, _cookie] = checkAuth(router, '/', true); //automatically check if cookie exists and route authStatus matches the condition
   try {
     if (!isAuthenticated) {
-      var token = router.asPath.split('?')[1].split('=')[0];
+      var token = String(router.asPath.split('?')[1]);
+      if (token.includes('=')) {
+        token = router.asPath.split('?')[1].split('=')[0];
+      } else {
+        //pass
+      }
 
       try {
         var { data, valid } = userService.validateToken(token);
