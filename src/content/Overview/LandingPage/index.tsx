@@ -130,7 +130,6 @@ function LandingPage() {
                   <img
                     alt="Hero-Image"
                     width={400}
-                    layout="responsive"
                     loading="lazy"
                     height={550}
                     src="/textbot.webp"
