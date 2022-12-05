@@ -118,7 +118,9 @@ function Logo() {
           <Tooltip title="Version 1.0" arrow placement="right">
             <VersionBadge>1.0</VersionBadge>
           </Tooltip>
-          <LogoText>OrangeWavesAI | Customer Service Chatbots Made Easier!</LogoText>
+          <LogoText>
+            OrangeWavesAI | Customer Service Chatbots Made Easier!
+          </LogoText>
         </LogoTextWrapper>
       </Box>
     </LogoWrapper>

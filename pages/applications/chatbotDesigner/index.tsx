@@ -362,7 +362,7 @@ function DesignChatbot({ chatbotInformation }) {
     integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
     crossorigin="anonymous" referrerpolicy="no-referrer" />
 
-  <link rel="stylesheet" href="chatbot.css">`}
+  <link rel="stylesheet" href="https://orangewaves.tech/static/chatbot_cdn/chatbot.css">`}
                     </div>
                   </Tooltip>
                 </ListItem>
@@ -383,7 +383,7 @@ function DesignChatbot({ chatbotInformation }) {
                           ? botDetails.tokenID
                           : chatbotInformation.tokenID
                       }">
-    <script src="chatbot.js"></script>
+    <script src="https://orangewaves.tech/static/chatbot_cdn/chatbot.js"></script>
   </section>`}
                     </div>
                   </Tooltip>
