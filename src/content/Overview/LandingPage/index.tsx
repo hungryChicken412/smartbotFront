@@ -19,9 +19,6 @@ import CurrencyExchangeIcon from '@mui/icons-material/CurrencyExchange';
 import HelpIcon from '@mui/icons-material/Help';
 import QuizIcon from '@mui/icons-material/Quiz';
 import ArchitectureIcon from '@mui/icons-material/Architecture';
-import AccountTreeIcon from '@mui/icons-material/AccountTree';
-import AutoGraphIcon from '@mui/icons-material/AutoGraph';
-import SecurityIcon from '@mui/icons-material/Security';
 
 import 'slick-carousel/slick/slick.css';
 import 'slick-carousel/slick/slick-theme.css';
