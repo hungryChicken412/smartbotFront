@@ -59,7 +59,7 @@ chatSection[0].insertAdjacentHTML(
 <!-- <div class="badge">1</div> -->
 <div class="smartbot-chat-area">
   <span id="established" class="" style=" color:gray;padding-top:20px;">
-	You're talking to a virtual assistent
+	You're talking to a virtual assistant
   </span>
 </div>
 
