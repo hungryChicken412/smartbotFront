@@ -132,7 +132,7 @@ function LandingPage() {
                     width={400}
                     loading="lazy"
                     height={550}
-                    src="/textbot.webp"
+                    src="/im1.webp"
                   />
                 </div>
               </div>
