@@ -1,5 +1,5 @@
 import Head from 'next/head';
-import { Button, Divider } from '@mui/material';
+import { Button } from '@mui/material';
 import toast from 'src/components/Toast';
 import { useCallback, useState } from 'react';
 import Link from 'next/link';
@@ -52,9 +52,6 @@ function Login() {
       </Head>
       <div className={styles.auth_container}>
         <div className={styles.auth_box}>
-          <Link href="/">
-            <img src="/orange.png" width={100} />
-          </Link>
           <p></p>
 
           <div className={styles.auth_main_box}>

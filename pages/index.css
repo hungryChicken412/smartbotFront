@@ -267,7 +267,7 @@ body {
   justify-content: end;
 }
 .hero-img {
-  width: 80%;
+  width: 100%;
   animation: heroImgFloatUp 4s ease-in infinite;
 }
 
@@ -303,8 +303,8 @@ body {
 }
 
 .landingpage-call {
-  background-color: #140c4f;
-  max-width: 949px;
+  background-color: white;
+
   margin: auto;
   text-align: center;
   height: 20rem;
@@ -316,7 +316,7 @@ body {
 
 .landingpage-call-text {
   font-size: 40px;
-  color: white;
+  color: black;
   padding: 20px;
 }
 
@@ -384,6 +384,7 @@ body {
   }
   .landingpage-section-1-image {
     width: 100%;
+    margin-bottom: 80px;
   }
 
   .hero {
@@ -393,6 +394,12 @@ body {
 
   .auth-box {
     width: 100%;
+  }
+
+  .hero-img-col img {
+    width: 100%;
+    height: auto;
+    padding-top: 20px;
   }
 
   .hero-col {

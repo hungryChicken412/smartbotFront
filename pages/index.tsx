@@ -32,7 +32,10 @@ function Overview() {
         dangerouslySetInnerHTML={{
           __html: `<section class="smartbot-section" name="smartbot-section" id="6b271431-a19e-465b-b17c-622cd7a0d22f">
     <script src="/static/chatbot_cdn/chatbot.js"></script>
-  </section>`
+  </section>
+
+  
+  `
         }}
       />
     </OverviewWrapper>

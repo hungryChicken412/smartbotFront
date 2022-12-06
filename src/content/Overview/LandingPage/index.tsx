@@ -193,7 +193,7 @@ function LandingPage() {
                 <div className="landing-page-custom-head">
                   Accept helpdesk issues
                 </div>
-                <div className="landing-page-custom-text">
+                <div className="landing-page-custom-text" data-aos="flip-right">
                   Create help desk tickets in a whim with a powerful in-built
                   ticketting system and solve your customers' queries on the go!
                 </div>
@@ -202,6 +202,7 @@ function LandingPage() {
                 alt="Demo of our service Image-1"
                 className="landingpage-section-1-image"
                 src="/img2.webp"
+                data-aos="flip-right"
               />
             </div>
           </div>
@@ -212,7 +213,7 @@ function LandingPage() {
                   GATHER FEEDBACK
                 </Typography>
                 <div className="landing-page-custom-head">Conduct surveys</div>
-                <div className="landing-page-custom-text">
+                <div className="landing-page-custom-text" data-aos="flip-left">
                   Create short and sweet surveys from the in built templates or
                   create one from scratch! and get important suggestions and
                   information from the users.
@@ -221,6 +222,7 @@ function LandingPage() {
               <img
                 alt="demo of our service "
                 className="landingpage-section-1-image"
+                data-aos="flip-right"
                 src="/img3.webp"
               />
             </div>
@@ -232,8 +234,9 @@ function LandingPage() {
           alt="demo"
           className="landingpage-section-1-image"
           src="/im1.webp"
+          data-aos="flip-right"
         />
-        <div className="landingpage-section-1-content">
+        <div className="landingpage-section-1-content" data-aos="flip-left">
           <Typography sx={{ mb: 2 }} variant="h2">
             What does it offer?
           </Typography>
@@ -377,7 +380,11 @@ function LandingPage() {
       >
         <Slider {...settings} style={{ backdropFilter: 'blur(80px)' }}>
           <div>
-            <div className="landingpage-section-1" style={{ paddingBottom: 0 }}>
+            <div
+              className="landingpage-section-1"
+              style={{ paddingBottom: 0 }}
+              data-aos="flip-right"
+            >
               <div className="landingpage-section-1-content">
                 <Typography sx={{ mb: 2 }} variant="h4">
                   VIRTUAL ASSISTANT
@@ -396,7 +403,10 @@ function LandingPage() {
           </div>
           <div>
             <div className="landingpage-section-1" style={{ paddingBottom: 0 }}>
-              <div className="landingpage-section-1-content">
+              <div
+                className="landingpage-section-1-content"
+                data-aos="flip-right"
+              >
                 <Typography sx={{ mb: 2 }} variant="h4">
                   INCREASE SALES
                 </Typography>
@@ -413,158 +423,18 @@ function LandingPage() {
           </div>
         </Slider>
       </div>
-      <div className="landingpage-section-1">
-        <div className="landingpage-section-1-content">
-          <Typography sx={{ mb: 2 }} variant="h2">
-            But at what cost?
-          </Typography>
-          <Typography sx={{ mb: 2, fontWeight: 'light' }} variant="h4">
-            Our introductory price starts at 12$/month or 100$ annually, BUT
-            <br />
-            Currently we're offering a 100% discount for the first 100 users!
-            Log in now and we'll get back to you.
-          </Typography>
-        </div>
-      </div>
-      {/* <div className=" landingpage-section-1 landingpage-section-pricing">
-        <img className="landingpage-section-1-image" src="/img2.webp" />
-        <div className="landingpage-section-pricing-block">
-          <div className="landingpage-pricing-block-header">
-            <Label color="primary"> PRO </Label>
-            <Typography sx={{ mb: 2 }} variant="h3">
-              100$ / year
-            </Typography>
 
-            <Typography sx={{ mb: 2 }} variant="subtitle1">
-              or 12$ / month
-            </Typography>
-          </div>
-
-          <div className="landingpage-pricing-list">
-            <List
-              sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}
-              component="nav"
-              aria-labelledby="nested-list-subheader"
-            >
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <SettingsTwoToneIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary=" Customer Support"
-                  />
-                </ListItemWrapper>
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <AccountTreeIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary="        All Basic Features!  "
-                  />
-                </ListItemWrapper>
-              </ListItemButton>{' '}
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <AddAlertIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary="   Email Notifications  "
-                  />
-                </ListItemWrapper>
-              </ListItemButton>{' '}
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <AutoGraphIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary="   Analytics "
-                  />
-                </ListItemWrapper>
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <BugReportIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary=" Create Tickets "
-                  />
-                </ListItemWrapper>
-              </ListItemButton>
-              <ListItemButton>
-                <ListItemWrapper>
-                  <ListItemAvatar style={{ color: '#57CA22' }}>
-                    <SecurityIcon />
-                  </ListItemAvatar>
-                  <ListItemText
-                    primaryTypographyProps={{
-                      color: 'Black',
-                      variant: 'h4',
-                      noWrap: true
-                    }}
-                    primary="   Pro Features  "
-                  />
-                </ListItemWrapper>
-              </ListItemButton>
-            </List>
-          </div>
-
-          <div className="landingpage-pricing-price">
-            <Link href="/dashboards">
-              <Button variant="outlined" color="primary">
-                {' '}
-                Get Now
-              </Button>{' '}
-            </Link>
-          </div>
-        </div>
-      </div> */}
-      <div className="landingpage-section-1" style={{ textAlign: 'justify' }}>
-        <Typography sx={{ mb: 2, fontWeight: 'light' }} variant="h3">
-          With the aim of providing the complete solution for all your smart
-          website needs! Starting from a virtual assistant to a complete
-          analytics solution or to a helpdesk system to keep track of issues
-          that your user stumble upon! Get everything under 1 dashboard that
-          handles it all! What are you waiting for?
-        </Typography>
-      </div>
-
-      <div className=" landingpage-custom-bg">
+      <div className=" landingpage-custom-bg" data-aos="fade-right">
         <div className="landingpage-call">
           <div className="landingpage-call-text">Let's start your journey!</div>
 
           <Link href="/auth/login">
-            <Button variant="contained" color="primary">
+            <Button
+              variant="outlined"
+              color="warning"
+              data-aos="zoom-in"
+              data-aos-duration="1000"
+            >
               {' '}
               Let's Go
             </Button>

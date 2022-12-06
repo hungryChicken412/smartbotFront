@@ -19,6 +19,9 @@ import { customHelpers } from '../helpers/custom-helpers';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { AppDashboardWrapper } from 'src/contexts/global_context';
+import AOS from 'aos';
+
+import 'aos/dist/aos.css';
 
 const clientSideEmotionCache = createEmotionCache();
 import './index.css';
@@ -43,6 +46,12 @@ function TokyoApp(props: TokyoAppProps) {
 
   useEffect(() => {
     var [isAuthenticated, _cookie] = customHelpers.checkAuth();
+    AOS.init({
+      easing: 'ease-out-cubic',
+      once: true,
+      offset: 50
+    });
+    console.log('here');
 
     if (
       router.asPath != '/' &&

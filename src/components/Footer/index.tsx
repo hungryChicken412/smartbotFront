@@ -16,14 +16,10 @@ function Footer() {
         textAlign={{ xs: 'center', md: 'left' }}
         justifyContent="space-between"
       >
-        <Box>
-          <Typography variant="subtitle1" color="white">
-            contact@orangewaves.tech
-          </Typography>
-        </Box>
+        <Box></Box>
         <Typography
           sx={{
-            pt: { xs: 2, md: 0, color: 'white' }
+            pt: { xs: 2, md: 0, color: 'warning' }
           }}
           variant="subtitle1"
         >

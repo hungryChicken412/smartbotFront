@@ -75,11 +75,6 @@ function Register() {
       </Head>
       <div className={styles.auth_container}>
         <div className={styles.auth_box}>
-          <Link href="/">
-            <img src="/orange.png" width={100} />
-          </Link>
-          <p></p>
-
           <div className={styles.auth_main_box} style={{ paddingTop: 0 }}>
             <div className={styles.auth_icon}>
               {' '}
