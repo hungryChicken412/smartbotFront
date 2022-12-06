@@ -129,10 +129,10 @@ function LandingPage() {
                 <div className="hero-img">
                   <img
                     alt="Hero-Image"
-                    width={400}
+                    width={450}
                     loading="lazy"
                     height={550}
-                    src="/im1.webp"
+                    src="/img2.webp"
                   />
                 </div>
               </div>
