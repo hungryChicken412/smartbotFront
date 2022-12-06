@@ -62,7 +62,7 @@ function Login() {
               {' '}
               <AccountCircle />
             </div>
-            <div style={{ textAlign: 'center' }}>
+            {/*  <div style={{ textAlign: 'center' }}>
               <Button
                 color="warning"
                 className={styles.auth_google_sign}
@@ -78,8 +78,7 @@ function Login() {
                 />
                 <p>Google</p>
               </Button>
-            </div>
-
+            </div>  */}
             <form className="auth-form" onSubmit={loginUser}>
               <div>
                 <input

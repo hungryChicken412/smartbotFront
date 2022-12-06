@@ -86,7 +86,7 @@ function Register() {
               <AccountCircle />
             </div>
 
-            <div style={{ textAlign: 'center' }}>
+            {/* <div style={{ textAlign: 'center' }}>
               <Button
                 color="warning"
                 className={styles.auth_google_sign}
@@ -102,7 +102,7 @@ function Register() {
                 />
                 <p>Google</p>
               </Button>
-            </div>
+            </div> */}
             <form onSubmit={onSubmit}>
               <div>
                 <input

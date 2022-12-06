@@ -385,7 +385,7 @@ function LandingPage() {
             <div className="landingpage-section-1" style={{ paddingBottom: 0 }}>
               <div className="landingpage-section-1-content">
                 <Typography sx={{ mb: 2 }} variant="h4">
-                  VIRTUAL ASSISTENT
+                  VIRTUAL ASSISTANT
                 </Typography>
                 <div className="landing-page-custom-head">
                   Help your users get what they are looking for!
@@ -424,12 +424,14 @@ function LandingPage() {
             But at what cost?
           </Typography>
           <Typography sx={{ mb: 2, fontWeight: 'light' }} variant="h4">
-            Our introductory price starts at 12$/month or 100$ annually, but if
-            you think your case is different, why not we discuss it in a call?
+            Our introductory price starts at 12$/month or 100$ annually, BUT
+            <br />
+            Currently we're offering a 100% discount for the first 100 users!
+            Log in now and we'll get back to you.
           </Typography>
         </div>
       </div>
-      <div className=" landingpage-section-1 landingpage-section-pricing">
+      {/* <div className=" landingpage-section-1 landingpage-section-pricing">
         <img className="landingpage-section-1-image" src="/img2.webp" />
         <div className="landingpage-section-pricing-block">
           <div className="landingpage-pricing-block-header">
@@ -551,11 +553,11 @@ function LandingPage() {
             </Link>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="landingpage-section-1" style={{ textAlign: 'justify' }}>
         <Typography sx={{ mb: 2, fontWeight: 'light' }} variant="h3">
           With the aim of providing the complete solution for all your smart
-          website needs! Starting from a virtual assistent to a complete
+          website needs! Starting from a virtual assistant to a complete
           analytics solution or to a helpdesk system to keep track of issues
           that your user stumble upon! Get everything under 1 dashboard that
           handles it all! What are you waiting for?
