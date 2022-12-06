@@ -6,13 +6,12 @@ import {
   Typography,
   styled,
   ListItemAvatar,
-  List,
   ListItemText,
   ListItemButton
 } from '@mui/material';
 
 import Link from 'src/components/Link';
-import Label from '@/components/Label';
+
 import 'animate.css';
 import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 import BugReportIcon from '@mui/icons-material/BugReport';
