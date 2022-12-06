@@ -61,7 +61,6 @@ import Wave from 'react-wavify';
 import Logo from '@/components/LogoSign';
 
 import Footer from '@/components/Footer';
-import AddAlertIcon from '@mui/icons-material/AddAlert';
 
 function LandingPage() {
   var settings = {
