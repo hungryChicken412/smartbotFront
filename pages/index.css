@@ -286,6 +286,7 @@ body {
 .hero-subtitle {
   font-size: 30px;
   text-align: left;
+  width: 90%;
   color: #dedede;
   padding-top: 20px;
 
@@ -400,6 +401,10 @@ body {
     width: 100%;
     height: auto;
     padding-top: 20px;
+  }
+
+  .hero-subtitle {
+    width: 100%;
   }
 
   .hero-col {
