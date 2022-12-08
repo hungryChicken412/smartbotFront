@@ -27,7 +27,21 @@ function Overview() {
         />
         <link rel="stylesheet" href="/static/chatbot_cdn/chatbot.css" />
       </Head>
+      <div
+        dangerouslySetInnerHTML={{
+          __html: `<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-R3Y4577WJK"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-R3Y4577WJK');
+</script>`
+        }}
+      ></div>
       <LandingPage />
+
       <div
         dangerouslySetInnerHTML={{
           __html: `<section class="smartbot-section" name="smartbot-section" id="6b271431-a19e-465b-b17c-622cd7a0d22f">
