@@ -199,6 +199,7 @@ function askQuestion(node) {
   expectingUserInput = true;
   lastNode = node.id;
   inputElm.disabled = false;
+  submitBtn.disabled = false;
   console.log(lastNode);
 }
 function sendImage(node, link) {
@@ -245,6 +246,8 @@ function sendMsg(currentNode, data) {
 
   if (inputElm.value != null && expectingUserInput) {
     expectingUserInput = false;
+    inputElm.disabled = true;
+    submitBtn.disabled = true;
     traverseTree(nodes[lastNode], userInput);
   } else traverseTree(nodes[currentNode], userInput);
 
