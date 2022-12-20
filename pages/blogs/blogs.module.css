@@ -19,10 +19,6 @@
     1;
 }
 
-.blog_container img {
-  width: 100%;
-}
-
 .list_blog {
   display: flex;
   flex-wrap: wrap;
@@ -45,4 +41,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
+}
+@media screen and (max-width: 400px) {
+  .blog_container img {
+    width: 100%;
+  }
 }
