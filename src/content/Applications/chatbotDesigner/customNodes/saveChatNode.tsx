@@ -1,4 +1,4 @@
-import { useCallback, useState } from 'react';
+import { useCallback } from 'react';
 import { Handle, Position } from 'reactflow';
 import SaveIcon from '@mui/icons-material/Save';
 import Checkbox from '@mui/material/Checkbox';
@@ -11,7 +11,7 @@ function MessageNode({ data }) {
     var checked = evt.target.checked;
     var menu = formRef.current;
     if (checked) {
-      console.log();
+      console.log(data);
       menu.classList.toggle('node-active');
     } else {
       menu.classList.toggle('node-active');
