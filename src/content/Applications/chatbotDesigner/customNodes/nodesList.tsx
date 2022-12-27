@@ -9,10 +9,15 @@ import UserMessageNode from '@/content/Applications/chatbotDesigner/customNodes/
 import SendImageNode from './sendImagenode';
 import SendLinksNode from './SendLinksNode';
 import AddLinkIcon from '@mui/icons-material/AddLink';
+import HelpIcon from '@mui/icons-material/Help';
+import BugReportIcon from '@mui/icons-material/BugReport';
+import SaveIcon from '@mui/icons-material/Save';
 
 import ImageIcon from '@mui/icons-material/Image';
 import AskQuestionNode from '@/content/Applications/chatbotDesigner/customNodes/questionNode';
-import HelpIcon from '@mui/icons-material/Help';
+import OpenTicketNode from '@/content/Applications/chatbotDesigner/customNodes/OpenTicketNode';
+import sendEmailNode from '@/content/Applications/chatbotDesigner/customNodes/sendEmailNode';
+import saveChatNode from '@/content/Applications/chatbotDesigner/customNodes/saveChatNode';
 
 export const nodes = [
   {
@@ -66,7 +71,29 @@ export const nodes = [
   }
 ];
 
-export const OperationNodes = [];
+export const OperationNodes = [
+  {
+    name: 'Open Ticket',
+    icon: <BugReportIcon />,
+    id: 'open_ticket',
+    key: 5,
+    hint: ' Open a support ticket for the user'
+  },
+  {
+    name: 'Save Chat',
+    icon: <SaveIcon />,
+    id: 'save_log',
+    key: 8,
+    hint: ' Save the chat log '
+  },
+  {
+    name: 'Send Email',
+    icon: <EmailIcon />,
+    id: 'send_email',
+    key: 9,
+    hint: ' Send an email to the given email'
+  }
+];
 
 export const nodeTypes = {
   message_node: MessageNode,
@@ -76,5 +103,9 @@ export const nodeTypes = {
   send_link: SendLinksNode,
 
   send_image: SendImageNode,
-  ask_question: AskQuestionNode
+  ask_question: AskQuestionNode,
+
+  open_ticket: OpenTicketNode,
+  save_log: saveChatNode,
+  send_email: sendEmailNode
 };

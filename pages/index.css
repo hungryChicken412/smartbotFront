@@ -14,6 +14,10 @@
   margin-bottom: 8px;
 }
 
+.operational_node {
+  background: rgb(134, 134, 134);
+}
+
 .entry_handle {
   background: rgb(136, 136, 255) !important;
 }
@@ -308,7 +312,7 @@ body {
 
   margin: auto;
   text-align: center;
-  height: 20rem;
+  height: 10rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -371,6 +375,16 @@ body {
   font-size: 40px !important;
 }
 
+.text-about-column-image {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-align: justify !important;
+  padding: 30px;
+  align-items: center;
+  text-align: left;
+}
+
 .modal_copy_field_here {
   width: 40rem;
   background-color: #140c4f;
@@ -380,8 +394,12 @@ body {
 }
 
 @media screen and (max-width: 849px) {
-  .landingpage-section-1 {
+  .text-about-column-image {
+    display: flex;
     flex-direction: column;
+  }
+  .landingpage-section-1 {
+    flex-direction: column-reverse;
   }
   .landingpage-section-1-image {
     width: 100%;

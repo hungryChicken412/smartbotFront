@@ -149,7 +149,7 @@ function LandingPage() {
           sx={{ textAlign: 'center', paddingTop: 2 }}
         >
           <Grid
-            spacing={{ xs: 6, md: 100 }}
+            spacing={{ xs: 6, md: 2 }}
             justifyContent="center"
             alignItems="center"
             container
@@ -159,15 +159,32 @@ function LandingPage() {
               <TypographyH1 sx={{ mb: 2 }} variant="h1">
                 Your one stop solution for customer satisfaction
               </TypographyH1>
+
               <TypographyH2
                 sx={{ lineHeight: 1.5, pb: 4 }}
                 variant="h4"
                 color="text.secondary"
                 fontWeight="normal"
               >
-                Make your website chatbot ready in a few clicks with The
-                simplest and easiest no-code chatbot building and hosting
-                platform!
+                <div className="text-about-column-image">
+                  <img
+                    src="/3d-casual-life-searching-for-idea.webp"
+                    data-aos="fade-right"
+                    width="300"
+                    alt="idea"
+                  />
+                  <div data-aos="fade-right">
+                    Make your business stand out from the crowd and provide the
+                    best and seamless customer service experience to your
+                    customers. Build the most sophisticated and user friendly
+                    chatbot systems for your website without any coding!
+                    <br />
+                    <br />
+                    OrangewavesAI is powered by a state of the art AI engine and
+                    is the most efficient and cost effective solution for your
+                    business.
+                  </div>
+                </div>
               </TypographyH2>
             </Grid>
           </Grid>
@@ -233,8 +250,8 @@ function LandingPage() {
         <img
           alt="demo"
           className="landingpage-section-1-image"
-          src="/im1.webp"
-          data-aos="flip-right"
+          src="/illustration_1.webp"
+          data-aos="fade-right"
         />
         <div className="landingpage-section-1-content" data-aos="flip-left">
           <Typography sx={{ mb: 2 }} variant="h2">
@@ -424,24 +441,96 @@ function LandingPage() {
         </Slider>
       </div>
 
-      <div className=" landingpage-custom-bg" data-aos="fade-right">
-        <div className="landingpage-call">
-          <div className="landingpage-call-text">Let's start your journey!</div>
+      <Container
+        maxWidth="lg"
+        style={{ zIndex: 2, paddingBottom: 120 }}
+        id="learnmore"
+        sx={{ textAlign: 'center', paddingTop: 2 }}
+      >
+        <Grid
+          spacing={{ xs: 6, md: 2 }}
+          justifyContent="center"
+          alignItems="center"
+          container
+        >
+          <Grid item md={10} lg={9} mx="auto">
+            <LabelWrapper>Power of AI</LabelWrapper>
+            <TypographyH1 sx={{ mb: 2 }} variant="h1">
+              AI powered customer service
+            </TypographyH1>
 
-          <Link href="/auth/login">
-            <Button
-              variant="outlined"
-              color="warning"
-              data-aos="zoom-in"
-              data-aos-duration="1000"
+            <TypographyH2
+              sx={{ lineHeight: 1.5, pb: 4 }}
+              variant="h4"
+              color="text.secondary"
+              fontWeight="normal"
             >
-              {' '}
-              Let's Go
-            </Button>
-          </Link>
+              <div className="text-about-column-image">
+                <img
+                  src="/illustration_2.webp"
+                  data-aos="fade-left"
+                  width="300"
+                  alt="idea"
+                />
+                <div style={{ fontSize: '30px' }}>
+                  Make your business stand out from the crowd build seamless
+                  user engagement and customer service experience, automate your
+                  business processes and generate leads
+                  <br />
+                </div>
+              </div>
+              <div className="text-about-column-image">
+                <div style={{ fontSize: '30px' }}>
+                  Orangewaves helps you upscale your business / website, easily
+                  build node based chatbots in a matter of minutes without any
+                  coding!
+                </div>
+                <img
+                  src="/illustration_3.webp"
+                  data-aos="fade-right"
+                  width="300"
+                  alt="idea"
+                />
+              </div>
+              <LabelWrapper>Power of AI</LabelWrapper>
+              <TypographyH1 sx={{ mb: 2 }} variant="h1">
+                Is Orangewaves right for you?
+              </TypographyH1>
+              <div className="text-about-column-image">
+                <div style={{ fontSize: '30px' }}>
+                  Orangewaves is aimed at businesses and individuals who want to
+                  upscale and provide the best possible customer service but
+                  aren't sure how to go about it.
+                  <br />
+                  We provide a simple workflow, complete setup tutorial and all
+                  hands support, guiding you through the process.
+                  <br />
+                </div>
+              </div>
+            </TypographyH2>
+          </Grid>
+        </Grid>
+        <div className=" landingpage-custom-bg" data-aos="fade-right">
+          <div className="landingpage-call">
+            <div className="landingpage-call-text">
+              Let's start your journey!
+            </div>
+
+            <Link href="/auth/login">
+              <Button
+                variant="contained"
+                color="warning"
+                data-aos="zoom-in"
+                data-aos-duration="1000"
+              >
+                {' '}
+                Let's Go
+              </Button>
+            </Link>
+          </div>
         </div>
-        <Footer />
-      </div>
+      </Container>
+      <Footer />
     </>
   );
 }

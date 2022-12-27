@@ -6,6 +6,7 @@ import HelpCenterIcon from '@mui/icons-material/HelpCenter';
 import SaveIcon from '@mui/icons-material/Save';
 import { nodeTypes } from '@/content/Applications/chatbotDesigner/customNodes/nodesList';
 import PlayLessonIcon from '@mui/icons-material/PlayLesson';
+
 import {
   Box,
   styled,
