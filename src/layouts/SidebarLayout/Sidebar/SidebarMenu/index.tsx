@@ -226,36 +226,6 @@ function SidebarMenu() {
                   </Button>
                 </NextLink>
               </ListItem>
-              <ListItem component="div">
-                <NextLink href="/management/chatlogs" passHref>
-                  <Button
-                    className={
-                      currentRoute === '/management/chatlogs' ? 'active' : ''
-                    }
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<ArticleIcon />}
-                  >
-                    Logs
-                  </Button>
-                </NextLink>
-              </ListItem>
-              <ListItem component="div">
-                <NextLink href="/management/tickets" passHref>
-                  <Button
-                    className={
-                      currentRoute === '/management/tickets' ? 'active' : ''
-                    }
-                    disableRipple
-                    component="a"
-                    onClick={closeSidebar}
-                    startIcon={<BugReportIcon />}
-                  >
-                    Helpdesk Tickets
-                  </Button>
-                </NextLink>
-              </ListItem>
             </List>
           </SubMenuWrapper>
         </List>
