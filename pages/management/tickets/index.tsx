@@ -13,13 +13,13 @@ function MyChatbots({ bots }) {
   return (
     <>
       <Head>
-        <title> Chatbots</title>
+        <title> Helpdesk-Tickets</title>
       </Head>
       <PageTitleWrapper>
         <PageHeader
           props={{
-            title: 'Chatlogs',
-            detail: "These are your chatbots that you've made."
+            title: ' Helpdesk Tickets',
+            detail: 'These are all your helpdesk tickets'
           }}
         />
       </PageTitleWrapper>
@@ -46,7 +46,8 @@ export async function getServerSideProps(ctx) {
     headers: { Authorization: `Token ${nextCookie(ctx)['token']}` }
   };
 
-  const res = await fetch(baseUrl + '/chatbots', requestOptions);
+  const res = await fetch(baseUrl + '/chatlogs', requestOptions);
+  console.log(res);
   const json = await res.json();
 
   return { props: { bots: json } };

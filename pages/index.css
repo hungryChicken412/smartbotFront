@@ -6,7 +6,8 @@
 .node_icon {
   display: flex;
   justify-content: center;
-  background: orange;
+  background: transparent;
+  border: 2px solid orange;
   max-width: fit-content;
   padding: 5px;
   margin: auto;
@@ -15,15 +16,20 @@
 }
 
 .operational_node {
-  background: rgb(134, 134, 134);
+  background: rgb(253, 123, 36);
 }
 
+.Pro_node {
+  background: transparent;
+  border: 2px solid #fd249f;
+}
 .entry_handle {
   background: rgb(136, 136, 255) !important;
 }
 
 .user-node .node_icon {
-  background: rgb(70 223 166);
+  background: transparent;
+  border: 2px solid rgb(70 223 166);
 }
 
 .react-flow__handle {
@@ -61,6 +67,7 @@ input {
 
 .entry-node .node_icon {
   background-color: rgb(127, 169, 242);
+  border: none;
 }
 .build_button {
   color: green;
@@ -71,6 +78,7 @@ input {
 
 .exit-node .node_icon {
   background: rgb(232, 80, 80);
+  border: none;
 }
 
 .updatenode__controls {
@@ -107,6 +115,7 @@ input {
 }
 .sm-node-form-step select {
   padding: 8px;
+  margin: 6px;
   border: none;
 }
 

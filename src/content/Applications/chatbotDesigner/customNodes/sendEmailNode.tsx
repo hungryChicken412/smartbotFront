@@ -5,15 +5,15 @@ import Checkbox from '@mui/material/Checkbox';
 import { useRef } from 'react';
 import Mail from '@mui/icons-material/Mail';
 
-function AskQuestionNode({ data }) {
+function SendEmailNode({ data }) {
   const [typeRef, qRef] = [
     useRef<HTMLSelectElement>(),
     useRef<HTMLInputElement>()
   ];
   const onChange = useCallback((_e) => {
     data['label'] = {
-      Question: qRef.current.value,
-      Type: typeRef.current.value
+      to: qRef.current.value,
+      message: typeRef.current.value
     };
     console.log(data['label']);
   }, []);
@@ -82,4 +82,4 @@ function AskQuestionNode({ data }) {
   );
 }
 
-export default AskQuestionNode;
+export default SendEmailNode;

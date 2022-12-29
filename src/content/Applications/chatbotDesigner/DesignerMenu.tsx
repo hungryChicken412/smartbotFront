@@ -30,9 +30,11 @@ import {
   InputLabel,
   MenuItem,
   Select,
-  FormControl
+  FormControl,
+  Badge
 } from '@mui/material';
 import { useEffect, useRef } from 'react';
+import { PRO_Nodes } from './customNodes/nodesList';
 
 const RootWrapper = styled(Box)(
   ({ theme }) => `
@@ -86,8 +88,8 @@ const ListItemWrapper = styled(ListItemButton)(
 );
 const tabs = [
   { value: 'base', label: 'Base' },
-  { value: 'operational', label: 'Operational' },
-  { value: 'advanced', label: 'Advanced' }
+
+  { value: 'advanced', label: 'Pro' }
 ];
 function DesignerMenu({ chatbot }) {
   const chatbotInformation = chatbot[0];
@@ -201,6 +203,7 @@ function DesignerMenu({ chatbot }) {
             value={currentTab}
             textColor="primary"
             indicatorColor="primary"
+            style={{ justifyContent: 'center' }}
           >
             {tabs.map((tab) => (
               <Tab key={tab.value} label={tab.label} value={tab.value} />
@@ -238,16 +241,21 @@ function DesignerMenu({ chatbot }) {
             ))}
           </div>
         )}
-        {currentTab == 'operational' && (
+
+        {currentTab == 'advanced' && (
           <List>
             <div className={styles.menu_container}>
-              {OperationNodes.map((node) => (
+              {PRO_Nodes.map((node) => (
                 <Tooltip title={node['hint']} placement="right-start">
                   <ListItemWrapper
                     onDragStart={(event) => onDragStart(event, node['id'])}
                     draggable
                   >
-                    <ListItemAvatar>{node['icon']}</ListItemAvatar>
+                    <ListItemAvatar>
+                      <Badge badgeContent={'PRO'} color="primary">
+                        {node['icon']}{' '}
+                      </Badge>
+                    </ListItemAvatar>
                     <ListItemText
                       sx={{
                         mr: 1
@@ -267,40 +275,8 @@ function DesignerMenu({ chatbot }) {
                   </ListItemWrapper>
                 </Tooltip>
               ))}
-              {OperationNodes.length == 0 && (
-                <Typography
-                  sx={{
-                    mr: 1,
-                    pt: 6
-                  }}
-                  variant="subtitle2"
-                >
-                  Empty
-                </Typography>
-              )}
             </div>
           </List>
-        )}
-        {currentTab == 'advanced' && (
-          <Box pb={3} style={{ marginTop: 20 }}>
-            <WarningBox>
-              <WarningAmberIcon color="warning" />
-            </WarningBox>
-            <Typography
-              sx={{
-                mt: 2,
-                textAlign: 'center'
-              }}
-              variant="subtitle2"
-            >
-              Oh No! Nothing Found
-            </Typography>
-            <Divider
-              sx={{
-                mt: 3
-              }}
-            />
-          </Box>
         )}
 
         <Modal

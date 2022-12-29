@@ -11,13 +11,24 @@ import SendLinksNode from './SendLinksNode';
 import AddLinkIcon from '@mui/icons-material/AddLink';
 import HelpIcon from '@mui/icons-material/Help';
 import BugReportIcon from '@mui/icons-material/BugReport';
+import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
+import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import SaveIcon from '@mui/icons-material/Save';
+import AppShortcutIcon from '@mui/icons-material/AppShortcut';
+import ContactPageIcon from '@mui/icons-material/ContactPage';
+import ArticleIcon from '@mui/icons-material/Article';
+import CommentIcon from '@mui/icons-material/Comment';
 
 import ImageIcon from '@mui/icons-material/Image';
 import AskQuestionNode from '@/content/Applications/chatbotDesigner/customNodes/questionNode';
 import OpenTicketNode from '@/content/Applications/chatbotDesigner/customNodes/OpenTicketNode';
 import sendEmailNode from '@/content/Applications/chatbotDesigner/customNodes/sendEmailNode';
 import saveChatNode from '@/content/Applications/chatbotDesigner/customNodes/saveChatNode';
+import PRO_ChatSentimentNode from './ChatSentimentAINode';
+import PRO_AnalyseSentimentNode from './AnalyseSentimentNode';
+import PRO_AutoRespond from './AutoRespondNode';
+import PRO_UserState from './UserStateNode';
+import PRO_ArticleAnwser from './ArticleAnswerNode';
 
 export const nodes = [
   {
@@ -71,7 +82,51 @@ export const nodes = [
   }
 ];
 
-export const OperationNodes = [
+export const OperationNodes = [];
+
+export const PRO_Nodes = [
+  {
+    name: 'Analyze Sentiment',
+    icon: <AutoGraphIcon />,
+    id: 'analyseSentiment_node',
+    key: 10,
+    hint: ' Analyze the sentiment of the user message'
+  },
+  {
+    name: 'Process Sentiment',
+    icon: <LibraryBooksIcon />,
+    id: 'sentiment_node',
+    key: 11,
+    hint: ' Classify the sentiment of the user message'
+  },
+  {
+    name: 'Auto Respond',
+    icon: <AppShortcutIcon />,
+    id: 'autorespond_node',
+    key: 12,
+    hint: ' Auto respond to the user message'
+  },
+  {
+    name: 'User State',
+    icon: <ContactPageIcon />,
+    id: 'userstate_node',
+    key: 13,
+    hint: ' Get the user state'
+  },
+  {
+    name: 'Answer from Document',
+    icon: <ArticleIcon />,
+    id: 'document_node',
+    key: 14,
+    hint: ' Get the answer from the attached document.'
+  },
+  {
+    name: 'Answer from FAQs',
+    icon: <CommentIcon />,
+    id: 'chat_node',
+    key: 15,
+    hint: ' Get the answer from the attached FAQs.'
+  },
   {
     name: 'Open Ticket',
     icon: <BugReportIcon />,
@@ -107,5 +162,11 @@ export const nodeTypes = {
 
   open_ticket: OpenTicketNode,
   save_log: saveChatNode,
-  send_email: sendEmailNode
+  send_email: sendEmailNode,
+
+  sentiment_node: PRO_ChatSentimentNode,
+  analyseSentiment_node: PRO_AnalyseSentimentNode,
+  autorespond_node: PRO_AutoRespond,
+  userstate_node: PRO_UserState,
+  document_node: PRO_ArticleAnwser
 };

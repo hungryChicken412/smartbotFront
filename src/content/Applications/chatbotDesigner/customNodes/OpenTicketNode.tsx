@@ -4,7 +4,7 @@ import BugReportIcon from '@mui/icons-material/BugReport';
 import Checkbox from '@mui/material/Checkbox';
 import { useRef } from 'react';
 
-function MessageNode({ data }) {
+function OpenTicketNode({ data }) {
   const formRef = useRef<HTMLDivElement>();
 
   const onChange = useCallback((evt) => {
@@ -60,4 +60,4 @@ function MessageNode({ data }) {
   );
 }
 
-export default MessageNode;
+export default OpenTicketNode;

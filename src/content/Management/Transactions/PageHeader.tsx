@@ -5,21 +5,22 @@ import { useAppContext } from '@/contexts/global_context';
 
 import Link from 'next/link';
 
-function PageHeader() {
+function PageHeader({ props }) {
   const appContext = useAppContext();
 
   const user = {
     name: appContext.username
   };
+  console.log(props);
 
   return (
     <Grid container justifyContent="space-between" alignItems="center">
       <Grid item>
         <Typography variant="h3" component="h3" gutterBottom>
-          Chatbots
+          {props.title}
         </Typography>
         <Typography variant="subtitle2">
-          {user.name}, these are the chatbots that you have created.
+          {user.name}, {props.detail}
         </Typography>
       </Grid>
       <Grid item>

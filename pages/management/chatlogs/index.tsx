@@ -13,14 +13,11 @@ function MyChatbots({ bots }) {
   return (
     <>
       <Head>
-        <title> Chatbots</title>
+        <title> Logs</title>
       </Head>
       <PageTitleWrapper>
         <PageHeader
-          props={{
-            title: 'Chatlogs',
-            detail: "These are your chatbots that you've made."
-          }}
+          props={{ title: 'Logs', detail: ' These are your chatbot logs' }}
         />
       </PageTitleWrapper>
       <Container maxWidth="lg">

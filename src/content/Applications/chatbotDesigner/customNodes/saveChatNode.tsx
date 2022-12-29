@@ -4,7 +4,7 @@ import SaveIcon from '@mui/icons-material/Save';
 import Checkbox from '@mui/material/Checkbox';
 import { useRef } from 'react';
 
-function MessageNode({ data }) {
+function SaveChatNode({ data }) {
   const formRef = useRef<HTMLDivElement>();
 
   const onEditMenu = useCallback((evt) => {
@@ -45,4 +45,4 @@ function MessageNode({ data }) {
   );
 }
 
-export default MessageNode;
+export default SaveChatNode;
