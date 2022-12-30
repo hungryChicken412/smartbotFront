@@ -7,17 +7,6 @@ import Badge from '@mui/material/Badge';
 import AssignmentIcon from '@mui/icons-material/Assignment';
 
 function PRO_ArticleAnwser({ data }) {
-  const [typeRef, qRef] = [
-    useRef<HTMLSelectElement>(),
-    useRef<HTMLInputElement>()
-  ];
-  const onChange = useCallback((_e) => {
-    data['label'] = {
-      Type: typeRef.current.value
-    };
-    console.log(data['label']);
-  }, []);
-
   const formRef = useRef<HTMLDivElement>();
 
   const [_initialFormState, _setInitialFormState] = useState({

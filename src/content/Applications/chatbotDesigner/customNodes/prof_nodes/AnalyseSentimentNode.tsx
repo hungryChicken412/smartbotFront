@@ -7,17 +7,6 @@ import Badge from '@mui/material/Badge';
 import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 
 function PRO_AnalyseSentimentNode({ data }) {
-  const [typeRef, qRef] = [
-    useRef<HTMLSelectElement>(),
-    useRef<HTMLInputElement>()
-  ];
-  const onChange = useCallback((_e) => {
-    data['label'] = {
-      Type: typeRef.current.value
-    };
-    console.log(data['label']);
-  }, []);
-
   const formRef = useRef<HTMLDivElement>();
 
   const [_initialFormState, _setInitialFormState] = useState({

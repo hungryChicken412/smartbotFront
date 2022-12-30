@@ -7,7 +7,7 @@ import Badge from '@mui/material/Badge';
 import LibraryBooksIcon from '@mui/icons-material/LibraryBooks';
 
 function PRO_ChatSentimentNode({ data }) {
-  const [typeRef, qRef] = [
+  const [typeRef, _qRef] = [
     useRef<HTMLSelectElement>(),
     useRef<HTMLInputElement>()
   ];

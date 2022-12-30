@@ -69,16 +69,7 @@ const TabsContainerWrapper = styled(Box)(
         }
   `
 );
-const WarningBox = styled(Avatar)(
-  ({ theme }) => `
-          background-color: ${theme.colors.warning.lighter};
-          color: ${theme.colors.success.main};
-          width: ${theme.spacing(8)};
-          height: ${theme.spacing(8)};
-          margin-left: auto;
-          margin-right: auto;
-    `
-);
+
 const ListItemWrapper = styled(ListItemButton)(
   ({ theme }) => `
         &.MuiButtonBase-root {
