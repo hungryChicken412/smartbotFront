@@ -6,14 +6,16 @@ import { useRef } from 'react';
 import Mail from '@mui/icons-material/Mail';
 
 function SendEmailNode({ data }) {
-  const [typeRef, qRef] = [
-    useRef<HTMLSelectElement>(),
+  const [toRef, qRef, subRef] = [
+    useRef<HTMLInputElement>(),
+    useRef<HTMLTextAreaElement>(),
     useRef<HTMLInputElement>()
   ];
   const onChange = useCallback((_e) => {
     data['label'] = {
-      to: qRef.current.value,
-      message: typeRef.current.value
+      to: toRef.current.value,
+      message: qRef.current.value,
+      subject: subRef.current.value
     };
     console.log(data['label']);
   }, []);
@@ -22,7 +24,8 @@ function SendEmailNode({ data }) {
 
   const [initialFormState, _setInitialFormState] = useState({
     to: data['label']['to'],
-    message: data['label'['message']]
+    message: data['label']['message'],
+    subject: data['label']['subject']
   });
   const onEditMenu = useCallback((evt) => {
     var checked = evt.target.checked;
@@ -61,7 +64,17 @@ function SendEmailNode({ data }) {
             placeholder=" To: test@email.com"
             className="sm-node-input"
             defaultValue={initialFormState.to}
-            ref={qRef}
+            ref={toRef}
+            onChange={onChange}
+          ></input>
+        </div>
+        <div className="sm-node-form-step">
+          <input
+            type="text"
+            placeholder=" Subject "
+            className="sm-node-input"
+            defaultValue={initialFormState.subject}
+            ref={subRef}
             onChange={onChange}
           ></input>
         </div>
@@ -69,9 +82,10 @@ function SendEmailNode({ data }) {
           <textarea
             id="outlined-textarea"
             className="sm-node-textarea"
-            placeholder="Send This Message"
+            placeholder=" Message Body "
             rows={5}
             onChange={onChange}
+            ref={qRef}
             defaultValue={initialFormState.message}
           ></textarea>
         </div>

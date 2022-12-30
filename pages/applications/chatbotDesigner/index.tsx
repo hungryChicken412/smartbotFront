@@ -123,7 +123,7 @@ function DesignChatbot({ chatbotInformation }) {
   const reactFlowWrapper = useRef(null);
   const [nodes, setNodes, onNodesChange] = useNodesState(initialNodes);
   const [edges, setEdges, onEdgesChange] = useEdgesState(initialEdges);
-  const [botDetails, _setBotDetails] = useState(initialBotDetails);
+  const [botDetails, setBotDetails] = useState(initialBotDetails);
   const [reactFlowInstance, setReactFlowInstance] = useState(null);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
@@ -191,6 +191,7 @@ function DesignChatbot({ chatbotInformation }) {
       //console.log(JSON.parse(JSON.parse(chatbotInformation.chatbotData).edges));
       setNodes(JSON.parse(chatbotInformation.chatbotData).nodes);
       setEdges(JSON.parse(chatbotInformation.chatbotData).edges);
+      setBotDetails(JSON.parse(chatbotInformation.chatbotData).details);
     } else {
       notify('info', ' Editing new chatbot');
     }

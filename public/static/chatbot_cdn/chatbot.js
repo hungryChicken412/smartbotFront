@@ -1,7 +1,7 @@
 startingNodeID = 'node-0';
 nodes = {};
 edges = [];
-const api = 'https://dolphin-app-v2zkq.ondigitalocean.app/api-info/';
+const api = 'https://api.orangewaves.tech/api-info/';
 const chatSection = document.getElementsByName('smartbot-section');
 var chatbot = [];
 function sanitizer(str) {
@@ -135,7 +135,7 @@ async function startConversation() {
 
   document.getElementsByClassName('smartbot-intro-title')[0].innerHTML =
     chatbot[0]['name'] +
-    `<div class="smartbot-status">🟢 Online <br> Powered By OI</div>`;
+    `<div class="smartbot-status">🟢 Online <br> Powered By OI</div><div class="border-img"></div>`;
   document.getElementsByClassName('chatbot-icon')[0].src = chatbot[0]['avatar'];
 
   startAudio.play();
@@ -219,6 +219,48 @@ async function sendLink(node) {
       var im = `
 			<div class="sm-node-link-preview" ><img src="${data.image}" width="100%" height="100px"/><a href="${node.data.label}" ref='noopener' target='_blank'>${data.title}   </a><p>${data.description}</p><div>`;
       sendMsgToUser(im);
+      traverseTree(node, '');
+    });
+}
+
+async function openTicket(node) {
+  var q = await fetch(api + 'saveHelpdeskTicket/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token
+    },
+
+    body: JSON.stringify({
+      id: String(token),
+      logs: chatLog
+    })
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      let msg = `Ticket Created Successfully! Ticket ID: ${data.issueID}`;
+      sendMsgToUser(msg);
+      sendMsgToUser(node.data.label);
+      traverseTree(node, '');
+    });
+}
+async function sendEmail(node) {
+  console.log(node);
+  var q = await fetch(api + 'sendEmail/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token
+    },
+
+    body: JSON.stringify({
+      to: node.data.label.to,
+      subject: node.data.label.subject,
+      message: node.data.label.message
+    })
+  })
+    .then((response) => response.json())
+    .then((data) => {
       traverseTree(node, '');
     });
 }
@@ -340,10 +382,21 @@ async function traverseTree(startingNode, input = '') {
       sendLink(node);
     } else if (node.type == 'ask_question') {
       askQuestion(node);
-    } else {
+    } else if (node.type == 'open_ticket') {
+      openTicket(node);
+    } else if (node.type == 'send_email') {
+      sendEmail(node);
+      return;
+    } else if (node.type == 'exit_node') {
       endconversation();
       return;
+    } else {
+      sendMsgToUser('Sorry, Something went wrong, please contact the admin');
+      endconversation();
+      // Raise error
+      throw new Error('Invalid node type : ' + node.type);
     }
+    return;
   } else {
     console.log(' oinh');
     endconversation();

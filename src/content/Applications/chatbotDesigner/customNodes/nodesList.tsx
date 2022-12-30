@@ -2,12 +2,12 @@ import EmailIcon from '@mui/icons-material/Email';
 import StartIcon from '@mui/icons-material/Start';
 import ExitToAppIcon from '@mui/icons-material/ExitToApp';
 import { ChatBubble } from '@mui/icons-material';
-import MessageNode from '@/content/Applications/chatbotDesigner/customNodes/CustomMessage';
-import EntryNode from '@/content/Applications/chatbotDesigner/customNodes/EntryNode';
-import ExitNode from '@/content/Applications/chatbotDesigner/customNodes/ExitNode';
-import UserMessageNode from '@/content/Applications/chatbotDesigner/customNodes/UserMessageNode';
-import SendImageNode from './sendImagenode';
-import SendLinksNode from './SendLinksNode';
+import MessageNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/CustomMessage';
+import EntryNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/EntryNode';
+import ExitNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/ExitNode';
+import UserMessageNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/UserMessageNode';
+import SendImageNode from './base_nodes/sendImagenode';
+import SendLinksNode from './base_nodes/SendLinksNode';
 import AddLinkIcon from '@mui/icons-material/AddLink';
 import HelpIcon from '@mui/icons-material/Help';
 import BugReportIcon from '@mui/icons-material/BugReport';
@@ -20,15 +20,15 @@ import ArticleIcon from '@mui/icons-material/Article';
 import CommentIcon from '@mui/icons-material/Comment';
 
 import ImageIcon from '@mui/icons-material/Image';
-import AskQuestionNode from '@/content/Applications/chatbotDesigner/customNodes/questionNode';
-import OpenTicketNode from '@/content/Applications/chatbotDesigner/customNodes/OpenTicketNode';
-import sendEmailNode from '@/content/Applications/chatbotDesigner/customNodes/sendEmailNode';
-import saveChatNode from '@/content/Applications/chatbotDesigner/customNodes/saveChatNode';
-import PRO_ChatSentimentNode from './ChatSentimentAINode';
-import PRO_AnalyseSentimentNode from './AnalyseSentimentNode';
-import PRO_AutoRespond from './AutoRespondNode';
+import AskQuestionNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/questionNode';
+import OpenTicketNode from '@/content/Applications/chatbotDesigner/customNodes/prof_nodes/OpenTicketNode';
+import sendEmailNode from '@/content/Applications/chatbotDesigner/customNodes/prof_nodes/sendEmailNode';
+import saveChatNode from '@/content/Applications/chatbotDesigner/customNodes/_saveChatNode';
+import PRO_ChatSentimentNode from './prof_nodes/ChatSentimentAINode';
+import PRO_AnalyseSentimentNode from './prof_nodes/AnalyseSentimentNode';
+import PRO_AutoRespond from './prof_nodes/AutoRespondNode';
 import PRO_UserState from './UserStateNode';
-import PRO_ArticleAnwser from './ArticleAnswerNode';
+import PRO_ArticleAnwser from './prof_nodes/ArticleAnswerNode';
 
 export const nodes = [
   {
@@ -82,8 +82,6 @@ export const nodes = [
   }
 ];
 
-export const OperationNodes = [];
-
 export const PRO_Nodes = [
   {
     name: 'Analyze Sentiment',
@@ -134,13 +132,13 @@ export const PRO_Nodes = [
     key: 5,
     hint: ' Open a support ticket for the user'
   },
-  {
+  /* {
     name: 'Save Chat',
     icon: <SaveIcon />,
     id: 'save_log',
     key: 8,
     hint: ' Save the chat log '
-  },
+  },/ */
   {
     name: 'Send Email',
     icon: <EmailIcon />,

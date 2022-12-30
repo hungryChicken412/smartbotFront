@@ -88,10 +88,11 @@ function WatchListColumn({ bots }) {
       alignItems="stretch"
       spacing={3}
     >
-      <Grid item md={4} xs={12}>
+      <Grid item md={12} xs={12} style={{ display: 'flex', flexWrap: 'wrap' }}>
         {bots.map((item) => (
           <Card
             sx={{
+              margin: 3,
               overflow: 'visible'
             }}
             key={item.id}
@@ -154,13 +155,86 @@ function WatchListColumn({ bots }) {
               </Box>
             </Box>
             <Chart
-              options={chartOptions}
+              options={
+                {
+                  chart: {
+                    background: 'transparent',
+                    toolbar: {
+                      show: false
+                    },
+                    sparkline: {
+                      enabled: true
+                    },
+                    zoom: {
+                      enabled: false
+                    }
+                  },
+                  fill: {
+                    gradient: {
+                      shade: 'light',
+                      type: 'vertical',
+                      shadeIntensity: 0.1,
+                      inverseColors: false,
+                      opacityFrom: 0.8,
+                      opacityTo: 0,
+                      stops: [0, 100]
+                    }
+                  },
+                  colors: [theme.colors.primary.main],
+                  dataLabels: {
+                    enabled: false
+                  },
+                  theme: {
+                    mode: theme.palette.mode
+                  },
+                  stroke: {
+                    show: true,
+                    colors: [theme.colors.primary.main],
+                    width: 3
+                  },
+                  legend: {
+                    show: false
+                  },
+                  labels: Object.keys(item.interactions.last_week),
+
+                  xaxis: {
+                    labels: {
+                      show: false
+                    },
+                    axisBorder: {
+                      show: false
+                    },
+                    axisTicks: {
+                      show: false
+                    }
+                  },
+                  yaxis: {
+                    show: false,
+                    tickAmount: 5
+                  },
+                  tooltip: {
+                    x: {
+                      show: true
+                    },
+                    y: {
+                      title: {
+                        formatter: function () {
+                          return 'Users:';
+                        }
+                      }
+                    },
+                    marker: {
+                      show: false
+                    }
+                  }
+                } as ApexOptions
+              }
               series={[
                 {
                   data: Object.values(item.interactions.last_week) as number[]
                 }
               ]}
-              type="area"
+              type="bar"
               height={200}
             />
           </Card>

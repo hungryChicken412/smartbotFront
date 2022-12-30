@@ -1,8 +1,8 @@
 import React from 'react';
 import { useState, ChangeEvent } from 'react';
 import styles from './style.module.css';
-import WarningAmberIcon from '@mui/icons-material/WarningAmber';
-import { nodes, OperationNodes } from './customNodes/nodesList';
+
+import { nodes } from './customNodes/nodesList';
 import SettingsTwoToneIcon from '@mui/icons-material/SettingsTwoTone';
 import {
   Box,
