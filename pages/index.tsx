@@ -44,7 +44,7 @@ function Overview() {
 
       <div
         dangerouslySetInnerHTML={{
-          __html: `<section class="smartbot-section" name="smartbot-section" id="6b271431-a19e-465b-b17c-622cd7a0d22f">
+          __html: `<section class="smartbot-section" name="smartbot-section" id="a4d2b29c-28ea-478f-8ec1-cab50625b85d">
     <script src="/static/chatbot_cdn/chatbot.js"></script>
   </section>
 
