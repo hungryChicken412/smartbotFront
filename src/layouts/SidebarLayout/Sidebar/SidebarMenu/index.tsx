@@ -18,8 +18,10 @@ import AddIcon from '@mui/icons-material/Add';
 import TableChartTwoToneIcon from '@mui/icons-material/TableChartTwoTone';
 import AccountCircleTwoToneIcon from '@mui/icons-material/AccountCircleTwoTone';
 import DisplaySettingsTwoToneIcon from '@mui/icons-material/DisplaySettingsTwoTone';
-import ArticleIcon from '@mui/icons-material/Article';
-import BugReportIcon from '@mui/icons-material/BugReport';
+{
+  /* import ArticleIcon from '@mui/icons-material/Article';
+import BugReportIcon from '@mui/icons-material/BugReport'; */
+}
 
 const MenuWrapper = styled(Box)(
   ({ theme }) => `
@@ -226,7 +228,7 @@ function SidebarMenu() {
                   </Button>
                 </NextLink>
               </ListItem>
-              <ListItem component="div">
+              {/* <ListItem component="div">
                 <NextLink href="/management/chatlogs" passHref>
                   <Button
                     className={
@@ -255,7 +257,7 @@ function SidebarMenu() {
                     Helpdesk Tickets
                   </Button>
                 </NextLink>
-              </ListItem>
+              </ListItem> */}
             </List>
           </SubMenuWrapper>
         </List>
