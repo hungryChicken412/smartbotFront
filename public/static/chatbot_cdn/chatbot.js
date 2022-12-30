@@ -238,7 +238,7 @@ async function openTicket(node) {
   })
     .then((response) => response.json())
     .then((data) => {
-      let msg = `Ticket Created Successfully! Ticket ID: ${data.issueID}`;
+      let msg = `Created Successfully! Your Issuer ID: ${data.issueID}`;
       sendMsgToUser(msg);
       sendMsgToUser(node.data.label);
       traverseTree(node, '');
