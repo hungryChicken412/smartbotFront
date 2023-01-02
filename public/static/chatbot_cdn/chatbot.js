@@ -353,6 +353,13 @@ function nextNode(node, input = '', nodes) {
   console.log(node.type);
 }
 
+proNodes = [
+  'sentiment_node',
+  'analyseSentiment_node',
+  'autorespond_node',
+  'userstate_node',
+  'document_node'
+];
 async function traverseTree(startingNode, input = '') {
   await delay(800);
   var node = startingNode;
@@ -387,7 +394,13 @@ async function traverseTree(startingNode, input = '') {
     } else if (node.type == 'send_email') {
       sendEmail(node);
       return;
-    } else if (node.type == 'exit_node') {
+    } else if (node.type in proNodes) {
+      throw new Error('Invalid OrangeWave Syntax: ' + node.type + ' Please read the documentation');
+      endconversation();
+      return;
+    }
+
+    }else if (node.type == 'exit_node') {
       endconversation();
       return;
     } else {
