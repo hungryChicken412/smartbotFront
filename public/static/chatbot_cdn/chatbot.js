@@ -395,12 +395,14 @@ async function traverseTree(startingNode, input = '') {
       sendEmail(node);
       return;
     } else if (node.type in proNodes) {
-      throw new Error('Invalid OrangeWave Syntax: ' + node.type + ' Please read the documentation');
+      throw new Error(
+        'Invalid OrangeWave Syntax: ' +
+          node.type +
+          ' Please read the documentation'
+      );
       endconversation();
       return;
-    }
-
-    }else if (node.type == 'exit_node') {
+    } else if (node.type == 'exit_node') {
       endconversation();
       return;
     } else {
