@@ -104,14 +104,14 @@ export const PRO_Nodes = [
     key: 12,
     hint: ' Auto respond to the user message'
   },
-  {
+  /*  {
     name: 'User State',
     icon: <ContactPageIcon />,
     id: 'userstate_node',
     key: 13,
     hint: ' Get the user state'
-  },
-  {
+  }, 
+   {
     name: 'Answer from Document',
     icon: <ArticleIcon />,
     id: 'document_node',
@@ -119,7 +119,7 @@ export const PRO_Nodes = [
     hint: ' Get the answer from the attached document.'
   },
 
-  /*   {
+     {
     name: 'Answer from FAQs',
     icon: <CommentIcon />,
     id: 'chat_node',
