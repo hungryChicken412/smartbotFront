@@ -461,3 +461,12 @@
     display: none;
   }
 }
+
+.smartbot-typing-icon {
+  position: absolute;
+  font-size: 6px;
+  color: rgba(139, 139, 139, 0.589);
+
+  bottom: 100px;
+  left: 60px;
+}

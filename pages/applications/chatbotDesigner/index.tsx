@@ -107,7 +107,8 @@ const initialBotDetails = {
   website: '',
   avatar: '',
   status: 'Development',
-  tokenID: 'TEST1234'
+  tokenID: 'TEST1234',
+  article: ''
 };
 
 const minimapStyle = {
@@ -441,7 +442,7 @@ export async function getServerSideProps(ctx) {
       props: {}
     };
   }
-  console.log('herhifg');
+  console.log(json[0]['article']);
 
   return { props: { chatbotInformation: json[0] } };
 }

@@ -401,8 +401,27 @@ body {
   padding: 20px;
   height: min-content;
 }
-
+.editorSettings {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 20px;
+}
+.otherSettings {
+  width: auto;
+}
+.out_in {
+  width: 800px;
+}
+@media screen and (max-width: 1168px) {
+  .out_in {
+    width: 100%;
+  }
+}
 @media screen and (max-width: 849px) {
+  .out_in {
+    width: 100%;
+  }
   .text-about-column-image {
     display: flex;
     flex-direction: column;

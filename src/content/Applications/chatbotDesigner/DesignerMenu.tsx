@@ -95,18 +95,19 @@ function DesignerMenu({ chatbot }) {
     website: '',
     caching: false,
     avatar: '',
-    status: 'Development'
+    status: 'Development',
+    article: ''
   });
 
   useEffect(() => {
     try {
-      console.log(chatbotInformation);
       let b = {
         name: chatbotInformation.name,
         website: chatbotInformation.website,
         caching: chatbotInformation.caching,
         avatar: chatbotInformation.avatar,
-        status: chatbotInformation.status
+        status: chatbotInformation.status,
+        article: chatbotInformation.article
       };
 
       setlogoImage(b.avatar);
@@ -143,7 +144,8 @@ function DesignerMenu({ chatbot }) {
       caching: e.target.caching.checked,
       website: e.target.website.value,
       avatar: e.target.chatbot_logo.files[0],
-      status: (status.current.children[1] as HTMLSelectElement).value
+      status: (status.current.children[1] as HTMLSelectElement).value,
+      article: e.target.article.value
     };
 
     saveBot(temp);
@@ -281,7 +283,7 @@ function DesignerMenu({ chatbot }) {
             timeout: 500
           }}
         >
-          <Dialog onClose={handleClose} open={open}>
+          <Dialog onClose={handleClose} open={open} maxWidth="xl">
             <DialogTitle>
               <Typography
                 variant="h4"
@@ -291,103 +293,112 @@ function DesignerMenu({ chatbot }) {
               </Typography>
             </DialogTitle>
             <Divider />
-            <List sx={{ pt: 0 }}>
-              <form onSubmit={handleSettingChange}>
-                <ListItem>
-                  <Tooltip title="    Name of your chatbot">
-                    <TextField
-                      id="botname"
-                      label="   Chatbot Name"
-                      required
-                      defaultValue={bot.name}
-                      variant="outlined"
-                    />
-                  </Tooltip>
-                </ListItem>
-                <ListItem>
-                  <Tooltip title="URL of the website where it is to be hosted">
-                    <TextField
-                      id="website"
-                      label=" Your website URL"
-                      required
-                      variant="outlined"
-                      defaultValue={bot.website}
-                      type="url"
-                    />
-                  </Tooltip>
-                </ListItem>
-                <ListItem>
-                  <Tooltip title="           Your Bot Logo Here    ">
-                    <div className={styles.input_logo}>
-                      <label
-                        className={styles.input_field_logo_label}
-                        htmlFor="chatbot_logo"
-                      >
-                        Logo
-                      </label>
-                      <input
-                        id="chatbot_logo"
-                        style={{ display: 'none' }}
-                        onChange={readIconFile}
-                        type="file"
-                      ></input>{' '}
-                      <Avatar
-                        variant="rounded"
-                        alt={bot.name}
-                        src={logoImage}
+            <form onSubmit={handleSettingChange}>
+              <div className="editorSettings">
+                <div className="otherSettings">
+                  <TextField
+                    id="article"
+                    label=" AI Article For Automatic Anwering Questions"
+                    multiline
+                    rows={20}
+                    className="out_in"
+                    defaultValue={bot.article}
+                    variant="outlined"
+                  />
+                </div>
+                <List sx={{ pt: 0 }}>
+                  <ListItem>
+                    <Tooltip title="    Name of your chatbot">
+                      <TextField
+                        id="botname"
+                        label="   Chatbot Name"
+                        required
+                        defaultValue={bot.name}
+                        variant="outlined"
                       />
-                    </div>
-                  </Tooltip>
-                </ListItem>
-                <ListItem>
-                  <Tooltip title="       Enable this for better performance    ">
-                    <FormControl
-                      sx={{
-                        m: 1
-                      }}
-                    >
-                      <FormControlLabel
-                        control={
-                          <Switch
-                            defaultChecked={bot.caching}
-                            required
-                            id="caching"
-                          />
-                        }
-                        label="   Enable Caching"
-                        labelPlacement="start"
-                      />{' '}
+                    </Tooltip>
+                  </ListItem>
+                  <ListItem>
+                    <Tooltip title="URL of the website where it is to be hosted">
+                      <TextField
+                        id="website"
+                        label=" Your website URL"
+                        required
+                        variant="outlined"
+                        defaultValue={bot.website}
+                        type="url"
+                      />
+                    </Tooltip>
+                  </ListItem>
+                  <ListItem>
+                    <Tooltip title="           Your Bot Logo Here    ">
+                      <div className={styles.input_logo}>
+                        <label
+                          className={styles.input_field_logo_label}
+                          htmlFor="chatbot_logo"
+                        >
+                          Logo
+                        </label>
+                        <input
+                          id="chatbot_logo"
+                          style={{ display: 'none' }}
+                          onChange={readIconFile}
+                          type="file"
+                        ></input>{' '}
+                        <Avatar
+                          variant="rounded"
+                          alt={bot.name}
+                          src={logoImage}
+                        />
+                      </div>
+                    </Tooltip>
+                  </ListItem>
+                  <ListItem>
+                    <Tooltip title="       Enable this for better performance    ">
+                      <FormControl
+                        sx={{
+                          m: 1
+                        }}
+                      >
+                        <FormControlLabel
+                          control={
+                            <Switch defaultChecked={bot.caching} id="caching" />
+                          }
+                          label="   Enable Caching"
+                          labelPlacement="start"
+                        />{' '}
+                      </FormControl>
+                    </Tooltip>
+                  </ListItem>
+
+                  <ListItem>
+                    <FormControl sx={{ m: 1, minWidth: '100%' }}>
+                      <InputLabel id="bottmodelbel">Age</InputLabel>
+                      <Select
+                        id="bottmode"
+                        labelId="bottmodelbel"
+                        defaultValue={bot.status}
+                        required
+                        label="Age"
+                        ref={status}
+                      >
+                        <MenuItem value="Development">Development</MenuItem>
+                        <MenuItem value="Online" color="warning">
+                          Online
+                        </MenuItem>
+                        <MenuItem value="Offline">Offline</MenuItem>
+                      </Select>
                     </FormControl>
-                  </Tooltip>
-                </ListItem>
+                  </ListItem>
 
-                <ListItem>
-                  <FormControl sx={{ m: 1, minWidth: '100%' }}>
-                    <InputLabel id="bottmodelbel">Age</InputLabel>
-                    <Select
-                      id="bottmode"
-                      labelId="bottmodelbel"
-                      defaultValue={bot.status}
-                      required
-                      label="Age"
-                      ref={status}
-                    >
-                      <MenuItem value="Development">Development</MenuItem>
-                      <MenuItem value="Online" color="warning">
-                        Online
-                      </MenuItem>
-                      <MenuItem value="Offline">Offline</MenuItem>
-                    </Select>
-                  </FormControl>
-                </ListItem>
-
-                <ListItem style={{ justifyContent: 'center  ' }}>
-                  <Button variant="outlined" type="submit">
-                    Save
-                  </Button>
-                </ListItem>
-              </form>
-            </List>
+                  <ListItem style={{ justifyContent: 'center  ' }}>
+                    <Button variant="outlined" type="submit">
+                      Save
+                    </Button>
+                  </ListItem>
+                </List>
+              </div>
+            </form>
           </Dialog>
         </Modal>
       </RootWrapper>

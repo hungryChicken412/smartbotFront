@@ -13,7 +13,7 @@ function PRO_ChatSentimentNode({ data }) {
   ];
   const onChange = useCallback((_e) => {
     data['label'] = {
-      Type: typeRef.current.value
+      type: typeRef.current.value
     };
     console.log(data['label']);
   }, []);
@@ -21,7 +21,7 @@ function PRO_ChatSentimentNode({ data }) {
   const formRef = useRef<HTMLDivElement>();
 
   const [initialFormState, _setInitialFormState] = useState({
-    type: data['label'['type']]
+    type: data['label']['type']
   });
   const onEditMenu = useCallback((evt) => {
     var checked = evt.target.checked;
@@ -66,10 +66,11 @@ function PRO_ChatSentimentNode({ data }) {
             defaultValue={initialFormState.type}
             placeholder="TYPE"
           >
+            <option value="">Choose</option>
             <option value="complaint">User Complaint</option>
-            <option value="book_call">Book Appointment</option>
+            <option value="appointment">Book Appointment</option>
 
-            <option value="recommend"> Other</option>
+            <option value="other"> Other</option>
           </select>
         </div>
       </div>

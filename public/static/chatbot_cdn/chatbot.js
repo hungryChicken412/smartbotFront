@@ -61,6 +61,14 @@ chatSection[0].insertAdjacentHTML(
   <span id="established" class="" style=" color:gray;padding-top:20px;">
 	You're talking to a virtual assistant
   </span>
+  
+  <div class="smartbot-typing-icon" id="smartbot-typing-indicator">
+	<span class="smartbot-msg">
+	 <span><i class="fa-solid fa-circle fa-bounce"></i></span>
+	  <span><i class="fa-solid fa-circle fa-bounce" style="--fa-animation-duration: 2s"></i></span>
+	  <span><i class="fa-solid fa-circle fa-bounce"></i> </span></span>
+	</div>
+
 </div>
 
 
@@ -88,11 +96,14 @@ const infopanel = document.querySelector('.smartbot-information-panel');
 const endconvo = document.querySelector('#end-convo');
 const startconvo = document.querySelector('#start-convo');
 const startwait = document.querySelector('#established');
-const typingIcon = document.querySelector('#sending-icon-display-thingy');
+const typingIcon = document.querySelector('#smartbot-typing-indicator');
+typingIcon.style.display = 'none';
 inputElm.disabled = true;
 submitBtn.disabled = true;
 const delay = (ms) => new Promise((res) => setTimeout(res, ms));
 var startedConvo = false;
+var customInputNodeId = '';
+var lastUserInput = '';
 //   chat button toggler
 
 chatBtn.addEventListener('click', () => {
@@ -109,12 +120,12 @@ closeBtn.addEventListener('click', () => {
   }
 });
 submitBtn.addEventListener('click', (e) => {
-  sendMsg();
+  sendMsg(customInputNodeId, null);
 });
 
 inputElm.addEventListener('keypress', function (e) {
   if (e.key == 'Enter') {
-    sendMsg();
+    sendMsg(customInputNodeId, null);
   }
 });
 
@@ -143,6 +154,17 @@ async function startConversation() {
   nodes = JSON.parse(chatbot[0].chatbotHostData)['nodes'];
   edges = JSON.parse(chatbot[0].chatbotHostData)['edges'];
   console.log(chatbot[0]);
+  // find node id of starting node
+  var startingNodeID = null;
+  for (var nodeID in nodes) {
+    if (nodes[nodeID]['type'] == 'entry_node') {
+      startingNodeID = nodeID;
+      break;
+    }
+  }
+  if (startingNodeID == null) {
+    throw new Error('No starting node found!');
+  }
 
   var startingNode = nodes[startingNodeID];
   traverseTree(startingNode);
@@ -160,9 +182,9 @@ function endconversation() {
 }
 // Node Specific Functions
 function showMessage(node, optns) {
-  if (node['type'] != 'message_node')
+  if (node['type'] != 'message_node' && node['type'] != 'autorespond_node')
     throw new Error(
-      'Something is wrong with your chat flow! Expected a Message_Node but got' +
+      'Something is wrong with your chat flow! Expected a Message_Node but got ' +
         node['type']
     );
 
@@ -175,16 +197,22 @@ function showMessage(node, optns) {
         <span class="smartbot-msg">${msg}</span>
     </div>`;
 
-  if (opts.length > 1) {
+  if (opts.length > 0) {
     let options = opts;
     options.forEach((opt) => {
-      temp += `
+      if (opt.type == 'customInput_node') {
+        inputElm.disabled = false;
+        submitBtn.disabled = false;
+        customInputNodeId = opt.id;
+      } else {
+        temp += `
             <div class="smartbot-income-msg smartbot-msg-card smartbot-choice-msg"  onclick="choose('${
               node.id
             }','${sanitizer(opt)}')">
                 <span class="smartbot-msg">${opt}</span>
                 
             </div>`;
+      }
     });
   }
 
@@ -265,6 +293,48 @@ async function sendEmail(node) {
     });
 }
 
+async function analyseSentiment(node) {
+  console.log(node);
+  var q = await fetch(api + 'sentimentAnalysis/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token
+    },
+
+    body: JSON.stringify({
+      text: lastUserInput
+    })
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      traverseTree(node, '', data['sentiment']);
+    });
+}
+async function autoRespond(node) {
+  console.log(node);
+  var q = await fetch(api + 'autoRespond/', {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      Authorization: 'Bearer ' + token
+    },
+
+    body: JSON.stringify({
+      text: lastUserInput
+    })
+  })
+    .then((response) => response.json())
+    .then((data) => {
+      console.log(data);
+      sendMsgToUser(data['reply']);
+      options = findOptions(node, edges, nodes);
+      if (options.length > 0) showMessage(node, options);
+      traverseTree(node);
+    });
+}
+
 // send msg
 function choose(currentNode, n) {
   if (submitBtn.style.display == 'none') return '';
@@ -272,10 +342,12 @@ function choose(currentNode, n) {
 }
 function sendMsg(currentNode, data) {
   let userInput = inputElm.value;
+  typingIcon.style.display = 'block';
 
   if (data != null) {
     userInput = data;
   }
+  lastUserInput = userInput;
   chatLog.push(['User', userInput]);
 
   let temp = `<div class="smartbot-my-msg">
@@ -286,6 +358,7 @@ function sendMsg(currentNode, data) {
   chatArea.insertAdjacentHTML('beforeend', temp);
   chatArea.scrollTop = chatArea.scrollHeight;
 
+  console.log(currentNode);
   if (inputElm.value != null && expectingUserInput) {
     expectingUserInput = false;
     inputElm.disabled = true;
@@ -296,6 +369,7 @@ function sendMsg(currentNode, data) {
   inputElm.value = '';
 }
 function sendMsgToUser(msg) {
+  typingIcon.style.display = 'none';
   let temp = `
     <div class="smartbot-income-msg smartbot-msg-card">
         <span class="smartbot-username">🚀</span>
@@ -325,10 +399,12 @@ function findOptions(node, edges, nodes) {
   rels.forEach((rel) => {
     if (nodes[rel.target].type == 'user_message')
       options.push(nodes[rel.target].data.label);
+    else if (nodes[rel.target].type == 'customInput_node')
+      options.push(nodes[rel.target]);
   });
   return options;
 }
-function nextNode(node, input = '', nodes) {
+function nextNode(node, input = '', nodes, sentiment = '') {
   var rels = findRelations(node, edges);
 
   if (node.type == 'exit_node') {
@@ -336,7 +412,6 @@ function nextNode(node, input = '', nodes) {
     return;
   } else if (node.type == 'message_node') {
     if (rels.length == 1) return nodes[rels[0]['target']];
-    console.log('here');
 
     var q = null;
     for (let index = 0; index < rels.length; index++) {
@@ -346,11 +421,23 @@ function nextNode(node, input = '', nodes) {
         return q;
       }
     }
+  } else if (node.type == 'analyseSentiment_node') {
+    for (let index = 0; index < rels.length; index++) {
+      rel = rels[index];
+      console.log(nodes[rel.target]);
+
+      console.log(sentiment, nodes[rel.target].data.label.type);
+
+      if (nodes[rel.target].data.label.type == sentiment) {
+        q = nodes[rel.target];
+        return q;
+      }
+    }
+
+    throw new Error('No sentiment found');
   } else {
-    console.log('here', nodes[rels[0]['target']]);
     return nodes[rels[0]['target']];
   }
-  console.log(node.type);
 }
 
 proNodes = [
@@ -360,8 +447,9 @@ proNodes = [
   'userstate_node',
   'document_node'
 ];
-async function traverseTree(startingNode, input = '') {
+async function traverseTree(startingNode, input = '', sentiment = '') {
   await delay(800);
+
   var node = startingNode;
   var userInput = input;
   chatArea.scrollTop = chatArea.scrollHeight;
@@ -369,7 +457,7 @@ async function traverseTree(startingNode, input = '') {
   console.log(node);
 
   if (node.type != 'exit_node') {
-    node = nextNode(node, userInput, nodes);
+    node = nextNode(node, userInput, nodes, sentiment);
 
     if (node.type == 'message_node') {
       options = findOptions(node, edges, nodes);
@@ -394,13 +482,18 @@ async function traverseTree(startingNode, input = '') {
     } else if (node.type == 'send_email') {
       sendEmail(node);
       return;
-    } else if (node.type in proNodes) {
-      throw new Error(
-        'Invalid OrangeWave Syntax: ' +
-          node.type +
-          ' Please read the documentation'
-      );
-      endconversation();
+    } else if (node.type == 'customInput_node') {
+      traverseTree(node);
+      return;
+    } else if (node.type == 'analyseSentiment_node') {
+      analyseSentiment(node);
+      return;
+    } else if (node.type == 'sentiment_node') {
+      traverseTree(node);
+      return;
+    } else if (node.type == 'autorespond_node') {
+      autoRespond(node);
+
       return;
     } else if (node.type == 'exit_node') {
       endconversation();
@@ -409,7 +502,11 @@ async function traverseTree(startingNode, input = '') {
       sendMsgToUser('Sorry, Something went wrong, please contact the admin');
       endconversation();
       // Raise error
-      throw new Error('Invalid node type : ' + node.type);
+      throw new Error(
+        'Invalid OrangeWave Syntax: ' +
+          node.type +
+          ' Please read the documentation'
+      );
     }
     return;
   } else {
