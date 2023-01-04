@@ -29,8 +29,15 @@ import PRO_AnalyseSentimentNode from './prof_nodes/AnalyseSentimentNode';
 import PRO_AutoRespond from './prof_nodes/AutoRespondNode';
 import PRO_UserState from './prof_nodes/UserStateNode';
 import PRO_ArticleAnwser from './prof_nodes/ArticleAnswerNode';
-
+import PRO_customInput from './prof_nodes/customInputNode';
 export const nodes = [
+  {
+    name: ' Exit Node ',
+    icon: <ExitToAppIcon />,
+    id: 'exit_node',
+    key: 0,
+    hint: ' Every  workflow must have an exit node'
+  },
   {
     name: 'Entry Node',
     icon: <StartIcon />,
@@ -52,13 +59,7 @@ export const nodes = [
     key: 3,
     hint: " Get the user's message"
   },
-  {
-    name: ' Exit Node ',
-    icon: <ExitToAppIcon />,
-    id: 'exit_node',
-    key: 0,
-    hint: ' Every  workflow must have an exit node'
-  },
+
   {
     name: '  Send Link ',
     icon: <AddLinkIcon />,
@@ -118,18 +119,19 @@ export const PRO_Nodes = [
     key: 14,
     hint: ' Get the answer from the attached document.'
   },
-  {
+
+  /*   {
     name: 'Answer from FAQs',
     icon: <CommentIcon />,
     id: 'chat_node',
     key: 15,
     hint: ' Get the answer from the attached FAQs.'
-  },
+  }, */
   {
     name: 'Open Ticket',
     icon: <BugReportIcon />,
     id: 'open_ticket',
-    key: 5,
+    key: 16,
     hint: ' Open a support ticket for the user'
   },
   /* {
@@ -143,8 +145,16 @@ export const PRO_Nodes = [
     name: 'Send Email',
     icon: <EmailIcon />,
     id: 'send_email',
-    key: 9,
+    key: 17,
     hint: ' Send an email to the given email'
+  },
+
+  {
+    name: 'Custom Input',
+    icon: <ChatBubble />,
+    id: 'customInput_node',
+    key: 18,
+    hint: ' Get the user input'
   }
 ];
 
@@ -166,5 +176,6 @@ export const nodeTypes = {
   analyseSentiment_node: PRO_AnalyseSentimentNode,
   autorespond_node: PRO_AutoRespond,
   userstate_node: PRO_UserState,
-  document_node: PRO_ArticleAnwser
+  document_node: PRO_ArticleAnwser,
+  customInput_node: PRO_customInput
 };

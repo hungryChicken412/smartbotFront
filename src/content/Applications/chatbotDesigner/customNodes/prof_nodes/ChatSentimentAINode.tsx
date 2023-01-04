@@ -66,11 +66,10 @@ function PRO_ChatSentimentNode({ data }) {
             defaultValue={initialFormState.type}
             placeholder="TYPE"
           >
-            <option value="Inquiry"> Inquiry </option>
             <option value="complaint">User Complaint</option>
             <option value="book_call">Book Appointment</option>
 
-            <option value="recommend"> Recommend Product</option>
+            <option value="recommend"> Other</option>
           </select>
         </div>
       </div>
