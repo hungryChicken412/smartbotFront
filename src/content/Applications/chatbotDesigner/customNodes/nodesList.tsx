@@ -17,7 +17,6 @@ import AutoGraphIcon from '@mui/icons-material/AutoGraph';
 import AppShortcutIcon from '@mui/icons-material/AppShortcut';
 import ContactPageIcon from '@mui/icons-material/ContactPage';
 import ArticleIcon from '@mui/icons-material/Article';
-import CommentIcon from '@mui/icons-material/Comment';
 
 import ImageIcon from '@mui/icons-material/Image';
 import AskQuestionNode from '@/content/Applications/chatbotDesigner/customNodes/base_nodes/questionNode';
