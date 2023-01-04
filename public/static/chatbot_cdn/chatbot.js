@@ -175,6 +175,7 @@ function endconversation() {
   inputElm.placeholder = 'Conversation Ended';
   submitBtn.disabled = true;
   submitBtn.style.display = 'none';
+  typingIcon.style.display = 'none';
 
   let startconvohtml = `Conversation Ended`;
   console.log(chatLog);
