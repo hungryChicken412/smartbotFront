@@ -139,17 +139,22 @@ function Blog({ blogs }) {
           Latest Articles
         </div>
         <p style={{ fontSize: 20 }}>
-          Every technology whether it came during the bloom of the internet, the
-          90s , or today, always needs some guidance and nitpicking to ensure
-          the best possible experience for its users. And for the users, it is
-          important to understand the ins and outs of the network they operate
-          in to unlock the full potential of their tool.
-        </p>
-        <p style={{ fontSize: 20 }}>
-          {' '}
-          And for that I believe the best tool is, blogs. Which I think would
-          make the process of using our tool easier and more importantly,
-          faster!
+          As technology continues to evolve, it is essential for users to have
+          access to resources that help them understand and navigate new tools
+          and platforms. Whether you are using a cutting-edge device or a
+          tried-and-true piece of software, having guidance and insights can
+          make a big difference in your experience.
+          <br />
+          <br />
+          One of the most effective ways to get this kind of information is
+          through blogs. Blogs provide a platform for experts and enthusiasts to
+          share their knowledge and experiences with a wider audience. They can
+          cover a wide range of topics, from technical tutorials and product
+          reviews to tips and tricks for getting the most out of your tools.
+          <br />
+          <br />
+          Which is why we have created this blog section for you to read and
+          learn more about the latest news and information about Orange Waves!
         </p>
 
         <div className={styles.list_blog}>
