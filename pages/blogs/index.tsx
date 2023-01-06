@@ -62,6 +62,13 @@ function Blog({ blogs }) {
     <>
       <Head>
         <title>Orange Waves Authentication</title>
+        {/* SEO */}
+        <meta name="description" content="OrangeWavesAI Blog / Documentation" />
+        <meta name="keywords" content="OrangeWavesAI, Blog, Documentation" />
+        <meta name="author" content="OrangeWavesAI" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="robots" content="index, follow" />
+        <meta httpEquiv="Content-Type" content="text/html; charset=utf-8" />
       </Head>
       <ParallaxProvider>
         <Parallax

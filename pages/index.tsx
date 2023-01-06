@@ -26,6 +26,13 @@ function Overview() {
           integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
         />
         <link rel="stylesheet" href="/static/chatbot_cdn/chatbot.css" />
+        {/* SEO */}
+        <meta name="description" content="OrangeWavesAI" />
+        <meta
+          name="keywords"
+          content="OrangeWavesAI, Customer service chatbot, Chatbot development, AI chatbot, Chatbot solutions, Automated customer service, Customer service automation, Chatbot for customer support, Customer service chatbot software, Chatbot platform for customer service , Chatbot technology for customer service, multi-channel support, personalized interactions, real-time responses , , Chatbot platform for customer service,Chatbot technology for customer service"
+        />
+        <meta name="author" content="OrangeWavesAI" />
       </Head>
       <div
         dangerouslySetInnerHTML={{
