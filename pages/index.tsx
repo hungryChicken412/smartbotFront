@@ -30,7 +30,8 @@ function Overview() {
         <meta name="description" content="OrangeWavesAI" />
         <meta
           name="keywords"
-          content="OrangeWavesAI, Customer service chatbot, Chatbot development, AI chatbot, Chatbot solutions, Automated customer service, Customer service automation, Chatbot for customer support, Customer service chatbot software, Chatbot platform for customer service , Chatbot technology for customer service, multi-channel support, personalized interactions, real-time responses , , Chatbot platform for customer service,Chatbot technology for customer service"
+          content="OrangeWavesAI, Customer service chatbot, Chatbot development, AI chatbot, Chatbot solutions, Automated customer service, Customer service automation, Chatbot for customer support, Customer service chatbot software, Chatbot platform for customer service , Chatbot technology for customer service, multi-channel support, personalized interactions, real-time responses ,  Chatbot platform for customer service,Chatbot technology for customer service, Artificial intelligence chatbot, Chatbot for business,
+          Chatbot for customer service"
         />
         <meta name="author" content="OrangeWavesAI" />
       </Head>
